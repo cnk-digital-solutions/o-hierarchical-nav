@@ -4,11 +4,11 @@ Responsive hierarchical nav.
 
 ## Navigation
 
-There are three styles of Navigation:
+There are three styles of Navigation depending on the class you add to the `<nav>`:
 
-* __Primary__
-* __Secondary__
-* __Tools__
+* __Primary__: `o-hierarchical-nav__primary-theme`
+* __Secondary__: `o-hierarchical-nav__secondary-theme`
+* __Tools__: `o-hierarchical-nav__tools-theme`
 
 All Navigation options have the same general markup structure that you can see in [main.mustache](https://github.com/Financial-Times/o-hierarchical-nav/blob/master/main.mustache)
 
