@@ -9,7 +9,6 @@
             "classlist"
         ],
         "optional": [
-            "svg",
             "datauri",
             "cssgradients",
             "mediaqueries",
@@ -21,17 +20,17 @@
     },
     "demos": [
         {
-            "path": "/demos/mega-dropdown.html",
-            "expanded": true,
-            "description": ""
-        },
-        {
             "path": "/demos/nav.html",
-            "expanded": true,
+            "expanded": false,
             "description": ""
         },
         {
             "path": "/demos/responsive-nav.html",
+            "expanded": true,
+            "description": ""
+        },
+        {
+            "path": "/demos/mega-dropdown.html",
             "expanded": true,
             "description": ""
         }
