@@ -1,0 +1,43 @@
+.o-hierarchical-nav__tools-theme {
+  @extend %o-hierarchical-nav--theme;
+  min-width: 55px;
+  min-height: 55px;
+  border-right: 1px solid #666666;
+  white-space: nowrap;
+  [data-o-hierarchical-nav-level='1'] {
+    & > [aria-controls] > a,
+    & > .o-hierarchical-nav__parent > a {
+      padding-right: 0;
+      background-image: none;
+    }
+    & > li {
+      display: inline-block;
+      & > a {
+        display: inline-block;
+        border-left: 1px solid #666666;
+        width: 54px;
+        height: 55px;
+        font-size: 11px;
+        text-align: center;
+      }
+    }
+  }
+}
+
+@include oGridRespondTo(S) {
+  .o-hierarchical-nav__tools-theme {
+    width: 55px;
+  }
+}
+
+@include oGridRespondTo(M) {
+  .o-hierarchical-nav__tools-theme {
+    width: 110px;
+  }
+}
+
+@include oGridRespondTo(L XL) {
+  .o-hierarchical-nav__tools-theme {
+    width: 220px;
+  }
+}

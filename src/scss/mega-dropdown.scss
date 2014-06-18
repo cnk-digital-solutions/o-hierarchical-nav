@@ -1,0 +1,17 @@
+.o-hierarchical-nav__mega-dropdown {
+  box-sizing: border-box;
+  position: absolute;
+  right: 0;
+  left: 0;
+  border-top: 20px solid _oColorsGetPaletteColor(pink-tint2);
+  padding: 15px 33px;
+  min-height: 100px;
+  width: 100%;
+  color: #333;
+  background-color: _oColorsGetPaletteColor(pink-tint1);
+  z-index: $_o-hierarchical-nav-mega-dropdown-zindex;
+}
+
+.o-hierarchical-nav__mega-dropdown--secondary {
+  border-top: none;
+}

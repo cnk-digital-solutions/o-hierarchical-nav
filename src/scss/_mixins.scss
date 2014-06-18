@@ -1,0 +1,22 @@
+@mixin oHierarchicalNavDownArrow($size: 8px, $color: #333) {
+  border-left: $size solid transparent;
+  border-right: $size solid transparent;
+  border-top: $size solid $color;
+  width: 0;
+  height: 0;
+  content: ".";
+  text-indent: $size;
+  overflow: hidden;
+}
+
+@mixin oHierarchicalNavArrow() {
+  @include oHierarchicalNavDownArrow(8px, #333);
+  position: absolute;
+  left: 50%;
+  top: 55px;
+  margin-left: -4px;
+}
+
+@function oHierarchicalNavAsset ($asset) {
+  @return oAssetsUse($asset, $o-hierarchical-nav-assets-path, $o-hierarchical-nav-version)
+}

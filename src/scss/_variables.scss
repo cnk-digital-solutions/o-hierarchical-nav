@@ -1,0 +1,11 @@
+$o-hierarchical-nav-name: o-hierarchical-nav;
+$o-hierarchical-nav-version: null !default;
+$o-hierarchical-nav-assets-path: $o-hierarchical-nav-name !default;
+$o-hierarchical-nav-brand-color: _oColorsGetPaletteColor(claret) !default; // Alphaville blue #2e6e9e
+
+$_o-hierarchical-nav-mega-dropdown-zindex: 10;
+
+$_o-hierarchical-nav-dropdown-border: 1px solid rgba(255, 255, 255, 0.5);
+
+$_o-hierarchical-nav-img-down-arrow-url: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAICAYAAAD0g6+qAAAAQUlEQVQokc3MMQEAIAgEQGp+DnIQgDZfgxwEwEkXXdDFC3Ai3wFQmVknAKqVqeqWmFkvmdx9JSTvkolkRcRb8o0BwSdFkSxgEtsAAAAASUVORK5CYII=';
+$_o-hierarchical-nav-img-right-arrow-url: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAICAYAAAD0g6+qAAAASklEQVQokWNggILIyMj/DNQA/////9/b20u5Yf+h4MCBA5QZ9h8J3Lx5k2TDmLAJPn/+nHIXzZw5kzKvff78+X9xcTHlgU1p9AMAYOI5FTN2DaUAAAAASUVORK5CYII=';
