@@ -12,9 +12,9 @@
 <body class="o-hoverable-on">
     <script>(function(d) {var b = d.getElementsByTagName('body')[0];b.className = b.className + ' demo-js';})(document);</script>
     
-    <h1 class="demo__title">Base</h1>
+    <h1 class="demo__title">Base theme</h1>
 
-<nav class="o-hierarchical-nav" data-o-component="hierarchical-nav" data-o-version="" style="background-color: #fff">
+<nav class="o-hierarchical-nav demo--horizontal-theme" data-o-component="o-hierarchical-nav" data-o-version="">
     <ul data-o-hierarchical-nav-level="1">
         <li aria-selected="true"><a>Item 1</a></li>
         <li><a>Item 2</a></li>
@@ -30,7 +30,7 @@
                     </ul>
                 </li>
                 <li><a>Item 3.3</a></li>
-                <li class="o-hierarchical-nav__parent"><a>Parent Item 3.4</a>
+                <li class="o-hierarchical-nav__parent"><a>Item 3.4 (parent)</a>
                     <ul data-o-hierarchical-nav-level="3">
                         <li><a>Item 3.4.1</a></li>
                         <li><a>Item 3.4.2</a></li>
@@ -42,10 +42,10 @@
             </ul>
         </li>
         <li><a>Item 4</a></li>
-        <li class="o-hierarchical-nav__parent"><a>Parent Item 5</a>
+        <li class="o-hierarchical-nav__parent"><a>Item 5 (parent)</a>
             <ul data-o-hierarchical-nav-level="2">
                 <li><a>Item 5.1</a></li>
-                <li class="o-hierarchical-nav__parent"><a>Parent Item 5.2</a>
+                <li class="o-hierarchical-nav__parent"><a>Item 5.2 (parent)</a>
                     <ul data-o-hierarchical-nav-level="3">
                         <li><a>Item 5.2.1</a></li>
                         <li><a>Item 5.2.2</a></li>
@@ -54,7 +54,7 @@
                     </ul>
                 </li>
                 <li><a>Item 5.3</a></li>
-                <li class="o-hierarchical-nav__parent"><a>Parent Item 5.4</a>
+                <li class="o-hierarchical-nav__parent"><a>Item 5.4 (parent)</a>
                     <ul data-o-hierarchical-nav-level="3">
                         <li><a>Item 5.2.1</a></li>
                         <li><a>Item 5.2.2</a></li>
@@ -68,9 +68,9 @@
     </ul>
 </nav>
 
-<h1 class="demo__title">Primary theme</h1>
+<h1 class="demo__title">Vertical theme</h1>
 
-<nav class="o-hierarchical-nav o-hierarchical-nav__primary-theme" data-o-component="hierarchical-nav" data-o-version="">
+<nav class="o-hierarchical-nav demo--vertical-theme" data-o-component="o-hierarchical-nav" data-o-version="" data-o-hierarchical-nav-orientiation='vertical'>
     <ul data-o-hierarchical-nav-level="1">
         <li aria-selected="true"><a>Item 1</a></li>
         <li><a>Item 2</a></li>
@@ -98,10 +98,10 @@
             </ul>
         </li>
         <li><a>Item 4</a></li>
-        <li class="o-hierarchical-nav__parent"><a>Parent Item 5</a>
+        <li class="o-hierarchical-nav__parent"><a>Item 5 (parent)</a>
             <ul data-o-hierarchical-nav-level="2">
                 <li><a>Item 5.1</a></li>
-                <li class="o-hierarchical-nav__parent"><a>Parent Item 5.2</a>
+                <li class="o-hierarchical-nav__parent"><a>Item 5.2 (parent)</a>
                     <ul data-o-hierarchical-nav-level="3">
                         <li><a>Item 5.2.1</a></li>
                         <li><a>Item 5.2.2</a></li>
@@ -110,31 +110,7 @@
                     </ul>
                 </li>
                 <li><a>Item 5.3</a></li>
-                <li><a>Item 5.4</a></li>
-            </ul>
-        </li>
-    </ul>
-</nav>
-
-<h1 class="demo__title">Secondary theme</h1>
-
-<nav class="o-hierarchical-nav o-hierarchical-nav__secondary-theme" data-o-component="hierarchical-nav" data-o-version="" style="background-color: #2e6e9e">
-    <ul data-o-hierarchical-nav-level="1">
-        <li aria-selected="true"><a>Item 1</a></li>
-        <li><a>Item 2</a></li>
-        <li class="o-hierarchical-nav__parent"><a>Parent Item 3</a>
-            <ul data-o-hierarchical-nav-level="2">
-                <li><a>Item 3.1</a></li>
-                <li><a>Item 3.2</a></li>
-                <li><a>Item 3.3</a></li>
-                <li><a>Item 3.4</a></li>
-            </ul>
-        </li>
-        <li><a>Item 4</a></li>
-        <li class="o-hierarchical-nav__parent"><a>Parent Item 5</a>
-            <ul data-o-hierarchical-nav-level="2">
-                <li><a>Item 5.1</a></li>
-                <li class="o-hierarchical-nav__parent"><a>Parent Item 5.2</a>
+                <li class="o-hierarchical-nav__parent"><a>Parent Item 5.4 (parent)</a>
                     <ul data-o-hierarchical-nav-level="3">
                         <li><a>Item 5.2.1</a></li>
                         <li><a>Item 5.2.2</a></li>
@@ -142,30 +118,11 @@
                         <li><a>Item 5.2.4</a></li>
                     </ul>
                 </li>
-                <li><a>Item 5.3</a></li>
-                <li><a>Item 5.4</a></li>
+                <li><a>Item 5.5</a></li>
             </ul>
         </li>
     </ul>
 </nav>
-
-<h1 class="demo__title">Tools theme</h1>
-
-<nav class="o-hierarchical-nav o-hierarchical-nav__tools-theme" data-o-component="hierarchical-nav" data-o-version="">
-    <ul data-o-hierarchical-nav-level="1"><!--
-    --><li data-priority="1"><a><i class="demo__icon demo__icon__search"></i>Tool 1</a></li><!--
-    --><li data-priority="3"><a><i class="demo__icon demo__icon__settings"></i>Tool 2</a></li><!--
-    --><li data-priority="4"><a><i class="demo__icon demo__icon__share"></i>Tool 3</a></li><!--
-    --><li data-more class="o-hierarchical-nav__parent"><a><i class="demo__icon demo__icon__more"></i>More</a>
-            <ul data-o-hierarchical-nav-level="2">
-                <li><a>More Tools 1</a></li>
-                <li><a>More Tools 2</a></li>
-                <li><a>More Tools 3</a></li>
-            </ul>
-    </li><!--
---></ul>
-</nav>
-
     <script src="/bundles/js?modules=o-hierarchical-nav:/demos/src/nav.js"></script>
     <script src='http://registry.origami.ft.com/embedapi?autoload=resize'></script>
 </body>

@@ -4,12 +4,6 @@ Responsive hierarchical nav.
 
 ## Navigation
 
-There are three styles of Navigation depending on the class you add to the `<nav>`:
-
-* __Primary__: `o-hierarchical-nav__primary-theme`
-* __Secondary__: `o-hierarchical-nav__secondary-theme`
-* __Tools__: `o-hierarchical-nav__tools-theme`
-
 All Navigation options have the same general markup structure that you can see in [main.mustache](https://github.com/Financial-Times/o-hierarchical-nav/blob/master/main.mustache)
 
 Each _navigation item_ can be either:
@@ -57,9 +51,13 @@ The `<li>` should be given an `aria-controls` attribute with the value being the
 
 When the nav item is clicked, the element targeted by the `aria-control` attribute will have its `aria-hidden` attribute toggled.
 
-## Responsive collapsing of navigation
+#### Megadropdowns
 
-All the navigation styles use [o-squishy-list](https://github.com/Financial-Times/o-squishy-list) to allow priorities to be set on the top level nav items:
+The horizontal base style comes with default styling for a __megadropdown__ element. This element has to add the class `.o-hierarchical-nav__mega-dropdown`.
+
+## Responsive collapsing of horizontal navigation
+
+__Horizontal navigation__ styles use [o-squishy-list](https://github.com/Financial-Times/o-squishy-list) to allow priorities to be set on the top level nav items:
 
 ```html
 <nav>
@@ -78,7 +76,7 @@ __o-squishy-list__ will show as many items has will fit in the available width. 
 A 'More' item may be added to the top level which will be populated with a list of elements that have been hidden by __o-squishy-list__:
 
 ```html
-    <li data-more class="o-hierarchical-nav__parent"><a>More</a></li>
+<li data-more class="o-hierarchical-nav__parent"><a>More</a></li>
 ```
 
 This item will be hidden until its needed.
@@ -86,9 +84,35 @@ This item will be hidden until its needed.
 If there's a chance that all nav items will be hidden and added to the More list, then it's possible to change the text title of the More item depending on whether it contains _some_ or _all_ the navigation items:
 
 ```html
-    <li data-more class="o-hierarchical-nav__parent"><a><span class="nav__more--if-some">More</span><span class="nav__more--if-all">Menu</span></a></li>
+<li data-more class="o-hierarchical-nav__parent"><a><span class="nav__more--if-some">More</span><span class="nav__more--if-all">Menu</span></a></li>
 ```
 
 ## Hover events
 
 It implements [o-hoverable](https://github.com/Financial-Times/o-hoverable). If a product wants hover effects to be triggered, it needs to [implement o-hoverable](https://github.com/Financial-Times/o-hoverable#using-in-a-product) too.
+
+## Vertical hierarchical nav
+
+To make your nav work properly in a vertical layout, you have to add `data-o-hierarchical-nav-orientiation="vertical"` to your `<nav>`.
+
+## Styling
+
+There are two base styles of Navigation for modules and products to extend:
+
+* __Horizontal__: `%o-hierarchical-nav--horizontal-theme`
+* __Vertical__: `%o-hierarchical-nav--vertical-theme`
+
+Things that are important to add to your theme are:
+
+* Styles for the `[aria-selected="true"]` attribute
+* Setting a width for `<nav>` when extending the __vertical__ theme
+
+## Javascript instantiation
+
+An __o-hierarchical-nav__ object must be constructed for every `<nav>` you have on your page that uses this module.
+
+```javascript
+var oHierarchicalNav = require('o-hierarchical-nav');
+var nav = document.querySelector('.o-hierarchical-nav');
+var hierarchicalNav = new oHierarchicalNav(nav);
+```
