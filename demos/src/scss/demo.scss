@@ -2,48 +2,65 @@
 @import "o-ft-icons/main";
 
 .demo__title {
-  margin: 20px 0 10px 0;
-  border-top: 1px solid #ddd;
-  padding: 5px 0;
-  font-family: sans-serif;
-  font-size: 14px;
+    margin: 20px 0 10px 0;
+    border-top: 1px solid #ddd;
+    padding: 5px 0;
+    font-family: sans-serif;
+    font-size: 14px;
 }
 
 .demo__mega-dropdown[aria-hidden=true] {
-  display: none;
+    display: none;
 }
 
 @include oFtIconsFontFace();
 
 .demo__icon {
-  @include oFtIconsBaseIconStyles();
-  display: block;
-  margin-top: 5px;
-  font-size: 20px;
-  line-height: 30px;
-  color: #ffffff;
+    @include oFtIconsBaseIconStyles();
+    display: block;
+    margin-top: 5px;
+    font-size: 20px;
+    line-height: 30px;
+    color: #ffffff;
 }
 
 .o-hierarchical-nav {
-  background-color: #333;
+    background-color: #333;
+
+    li {
+        font-size: 14px;
+        line-height: 16px;
+    }
+    a {
+        padding: 10px 20px;
+    }
+}
+
+.demo__vertical-theme {
+    @extend %o-hierarchical-nav__vertical-theme;
+    width: 300px;
+}
+
+.demo__horizontal-theme {
+    @extend %o-hierarchical-nav__horizontal-theme;
 }
 
 .demo__icon__search {
-  @extend %o-ft-icons-icon--search;
+    @extend %o-ft-icons-icon--search;
 }
 
 .demo__icon__settings {
-  @extend %o-ft-icons-icon--settings;
+    @extend %o-ft-icons-icon--settings;
 }
 
 .demo__icon__share {
-  @extend %o-ft-icons-icon--share;
+    @extend %o-ft-icons-icon--share;
 }
 
 .demo__icon__account {
-  @extend %o-ft-icons-icon--profile;
+    @extend %o-ft-icons-icon--profile;
 }
 
 .demo__icon__more {
-  @extend %o-ft-icons-icon--sections;
+    @extend %o-ft-icons-icon--sections;
 }

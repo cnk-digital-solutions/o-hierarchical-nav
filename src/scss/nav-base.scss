@@ -1,76 +1,56 @@
 .o-hierarchical-nav {
-  font-family: sans-serif;
-  white-space: nowrap;
-  ul {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-  }
-  a {
-    text-decoration: none;
-  }
-  [data-o-hierarchical-nav-level] {
-    li {
-      position: relative;
-      &[aria-hidden=true] {
-        display: none;
-      }
-      > ul {
-        display: none;
-      }
-      &[aria-expanded='true'] > ul {
-        display: block;
-      }
+    font-family: sans-serif;
+    white-space: nowrap;
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
     }
-  }
 
-  [data-o-hierarchical-nav-level='1'] {
-    & > li {
-      display: inline-block;
-      & > a {
-        display: inline-block;
-      }
+    a {
+        text-decoration: none;
+        color: #fff;
+        cursor: pointer;
     }
-    & > .o-hierarchical-nav__parent.o-hierarchical-nav--align-right [data-o-hierarchical-nav-level='2'] {
-      position: absolute;
-      right: 0;
-    }
-  }
 
-  [data-o-hierarchical-nav-level]:not([data-o-hierarchical-nav-level='1']) {
-    z-index: 10;
-    li {
-      display: block;
-      & > a {
-        display: block;
-      }
+    a:focus,
+    #{$o-hoverable-if-hover-enabled} & a:hover {
+        outline: none;
+        color: oColorsGetColorFor(link-alt-hover, text);
+        i {
+            color: oColorsGetColorFor(link-alt-hover, text);
+        }
     }
-  }
 
-  [data-o-hierarchical-nav-level='2'] {
-    position: absolute;
-    & > .o-hierarchical-nav__parent.o-hierarchical-nav__outside-right [data-o-hierarchical-nav-level='3'] {
-      position: absolute;
-      left: 100%;
-      top: 0;
-    }
-  }
+    [data-o-hierarchical-nav-level] {
+        li {
+            position: relative;
 
-  .o-hierarchical-nav__more--some {
-    .o-hierarchical-nav__more--if-some {
-      display: block;
-    }
-    .o-hierarchical-nav__more--if-all {
-      display: none;
-    }
-  }
-  .o-hierarchical-nav__more--all {
-    .o-hierarchical-nav__more--if-some {
-      display: none;
-    }
-    .o-hierarchical-nav__more--if-all {
-      display: block;
-    }
-  }
+            &[aria-hidden=true] {
+                display: none;
+            }
 
+            > ul {
+                display: none;
+            }
+
+            &[aria-expanded='true'] > ul {
+                display: block;
+            }
+        }
+    }
+
+    [data-o-hierarchical-nav-level='1'] {
+        & > a {
+            text-transform: uppercase;
+        }
+    }
+
+    [aria-controls] > a,
+    .o-hierarchical-nav__parent > a {
+        padding-right: 25px;
+        background-image: url($_o-hierarchical-nav-img-down-arrow-url);
+        background-repeat: no-repeat;
+        background-position: right 14px;
+    }
 }

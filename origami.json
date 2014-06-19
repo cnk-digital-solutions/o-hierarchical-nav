@@ -21,7 +21,7 @@
     "demos": [
         {
             "path": "/demos/nav.html",
-            "expanded": false,
+            "expanded": true,
             "description": ""
         },
         {
