@@ -99,8 +99,8 @@ To make your nav work properly in a vertical layout, you have to add `data-o-hie
 
 There are two base styles of Navigation for modules and products to extend:
 
-* __Horizontal__: `%o-hierarchical-nav__horizontal-theme`
-* __Vertical__: `%o-hierarchical-nav__vertical-theme`
+* __Horizontal__: `%o-hierarchical-nav--horizontal-theme`
+* __Vertical__: `%o-hierarchical-nav--vertical-theme`
 
 Things that are important to add to your theme are:
 

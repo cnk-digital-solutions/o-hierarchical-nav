@@ -36,13 +36,13 @@
     }
 }
 
-.demo__vertical-theme {
-    @extend %o-hierarchical-nav__vertical-theme;
+.demo--vertical-theme {
+    @extend %o-hierarchical-nav--vertical-theme;
     width: 300px;
 }
 
-.demo__horizontal-theme {
-    @extend %o-hierarchical-nav__horizontal-theme;
+.demo--horizontal-theme {
+    @extend %o-hierarchical-nav--horizontal-theme;
 }
 
 .demo__icon__search {

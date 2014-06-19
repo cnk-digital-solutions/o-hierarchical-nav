@@ -1,4 +1,4 @@
-%o-hierarchical-nav__horizontal-theme {
+%o-hierarchical-nav--horizontal-theme {
 
     [data-o-hierarchical-nav-level='1'] {
         & > li {
@@ -54,7 +54,7 @@
         background-image: url($_o-hierarchical-nav-img-right-arrow-url);
     }
 
-    .o-hierarchical-nav__mega-dropdown {
+    @at-root .o-hierarchical-nav__mega-dropdown {
         box-sizing: border-box;
         position: absolute;
         right: 0;
