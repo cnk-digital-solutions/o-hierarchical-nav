@@ -50,8 +50,14 @@
         border-bottom: $_o-hierarchical-nav-dropdown-border;
     }
 
-    .o-hierarchical-nav__parent.o-hierarchical-nav__outside-right[aria-expanded="true"] > a {
-        background-image: url($_o-hierarchical-nav-img-right-arrow-url);
+    .o-hierarchical-nav__parent.o-hierarchical-nav__outside-right[aria-expanded="true"] {
+        .o-hierarchical-nav__parent__right-arrow {
+            display: inline-block;
+        }
+
+        .o-hierarchical-nav__parent__down-arrow {
+            display: none;
+        }
     }
 
     @at-root .o-hierarchical-nav__mega-dropdown {

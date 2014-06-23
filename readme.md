@@ -95,6 +95,14 @@ It implements [o-hoverable](https://github.com/Financial-Times/o-hoverable). If 
 
 To make your nav work properly in a vertical layout, you have to add `data-o-hierarchical-nav-orientiation="vertical"` to your `<nav>`.
 
+## Arrows
+
+We use [o-ft-icons](https://github.com/Financial-Times/o-ft-icons) adding an `<i>` tag with the class `.o-hierarchical-nav__parent__down-arrow` in the `<a>` tag with the down arrow. When using a horizontal theme, you can also add a right arrow using the class `.o-hierarchical-nav__parent__right-arrow` when it's an element in a `data-o-hierarchical-nav-level="2"`.
+
+```html 
+<li class="o-hierarchical-nav__parent"><a>Item 3.2 (parent) <i class="o-hierarchical-nav__parent__down-arrow"></i><i class="o-hierarchical-nav__parent__right-arrow"></i></a>
+```
+
 ## Styling
 
 There are two base styles of Navigation for modules and products to extend:
@@ -106,6 +114,9 @@ Things that are important to add to your theme are:
 
 * Styles for the `[aria-selected="true"]` attribute
 * Setting a width for `<nav>` when extending the __vertical__ theme
+* Down and right arrow icons for parent elements. Make sure the size and color are correct.
+
+If you want to style __megadropdowns__, you need to add `@at-root` before the `.o-hierarchical-nav__mega-dropdown` class.
 
 ## Javascript instantiation
 
