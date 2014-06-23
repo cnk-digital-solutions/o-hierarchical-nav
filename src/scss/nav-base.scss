@@ -1,3 +1,5 @@
+@include oFtIconsFontFace();
+
 .o-hierarchical-nav {
     font-family: sans-serif;
     white-space: nowrap;
@@ -46,11 +48,23 @@
         }
     }
 
+    i {
+        @include oFtIconsBaseIconStyles();
+        color: #ffffff;
+    }
+
     [aria-controls] > a,
     .o-hierarchical-nav__parent > a {
-        padding-right: 25px;
-        background-image: url($_o-hierarchical-nav-img-down-arrow-url);
-        background-repeat: no-repeat;
-        background-position: right 14px;
+
+        .o-hierarchical-nav__parent__down-arrow {
+            @extend %o-ft-icons-icon--down-arrow;
+            font-size: 8px;
+        }
+        
+        .o-hierarchical-nav__parent__right-arrow {
+            @extend %o-ft-icons-icon--arrow-right;
+            font-size: 9px;
+            display: none;
+        }
     }
 }
