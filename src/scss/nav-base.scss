@@ -11,18 +11,16 @@
 
     a {
         text-decoration: none;
-        color: #fff;
         cursor: pointer;
-    }
-
-    a:focus,
-    #{$o-hoverable-if-hover-enabled} & a:hover {
         outline: none;
-        color: oColorsGetColorFor(link-alt-hover, text);
-        i {
-            color: oColorsGetColorFor(link-alt-hover, text);
+        color: #ffffff;
+
+        #{$o-hoverable-if-hover-enabled} &:hover {
+            color: oColorsGetColorFor(link-alt-hover, text);                
         }
     }
+
+    
 
     [data-o-hierarchical-nav-level] {
         li {
@@ -50,7 +48,6 @@
 
     i {
         @include oFtIconsBaseIconStyles();
-        color: #ffffff;
     }
 
     [aria-controls] > a,
