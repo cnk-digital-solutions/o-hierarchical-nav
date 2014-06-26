@@ -29,7 +29,7 @@
         border-right: $_o-hierarchical-nav-dropdown-border;
         border-bottom: $_o-hierarchical-nav-dropdown-border;
         border-left: $_o-hierarchical-nav-dropdown-border;
-        background-color: _oColorsGetPaletteColor(grey-tint5);
+        background-color: oColorsGetPaletteColor(grey-tint5);
         position: absolute;
 
         & > .o-hierarchical-nav__parent.o-hierarchical-nav__outside-right [data-o-hierarchical-nav-level='3'] {
@@ -40,7 +40,7 @@
     }
 
     [data-o-hierarchical-nav-level='3'] {
-        background-color: _oColorsGetPaletteColor(grey-tint4);
+        background-color: oColorsGetPaletteColor(grey-tint4);
     }
 
     .hierarchical-nav__outside-right > [data-o-hierarchical-nav-level] {
@@ -65,12 +65,12 @@
         position: absolute;
         right: 0;
         left: 0;
-        border-top: 20px solid _oColorsGetPaletteColor(pink-tint2);
+        border-top: 20px solid oColorsGetPaletteColor(pink-tint2);
         padding: 15px 33px;
         min-height: 100px;
         width: 100%;
         color: #333;
-        background-color: _oColorsGetPaletteColor(pink-tint1);
+        background-color: oColorsGetPaletteColor(pink-tint1);
         z-index: $_o-hierarchical-nav-mega-dropdown-zindex;
     }
 

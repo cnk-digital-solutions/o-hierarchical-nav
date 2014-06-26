@@ -1,7 +1,8 @@
 @include oFtIconsFontFace();
+@include oFontsInclude(BentonSans, normal);
 
 .o-hierarchical-nav {
-    font-family: sans-serif;
+    font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
     white-space: nowrap;
     ul {
         margin: 0;
@@ -19,7 +20,6 @@
             color: oColorsGetColorFor(link-alt-hover, text);                
         }
     }
-
     
 
     [data-o-hierarchical-nav-level] {
@@ -46,12 +46,12 @@
         }
     }
 
-    i {
-        @include oFtIconsBaseIconStyles();
-    }
-
     [aria-controls] > a,
     .o-hierarchical-nav__parent > a {
+
+        i {
+            @include oFtIconsBaseIconStyles();
+        }
 
         .o-hierarchical-nav__parent__down-arrow {
             @extend %o-ft-icons-icon--down-arrow;
