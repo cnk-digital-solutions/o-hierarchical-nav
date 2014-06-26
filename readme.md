@@ -71,6 +71,8 @@ __Horizontal navigation__ styles use [o-squishy-list](https://github.com/Financi
 
 __o-squishy-list__ will show as many items has will fit in the available width. If not everything will fit, then the necessary number of items will be hidden, starting with the lowest priority items.
 
+If you don't want to use a responsive horizontal navigation, you can require [Nav.js](https://github.com/Financial-Times/o-hierarchical-nav/blob/master/src/js/Nav.js) directly.
+
 ### Hidden navigation items
 
 A 'More' item may be added to the top level which will be populated with a list of elements that have been hidden by __o-squishy-list__:
