@@ -1,8 +1,9 @@
 /*global require,module*/
 function HierarchicalNav(rootEl) {
+	'use strict';
 
 	function init() {
-		if (rootEl.getAttribute('data-o-hierarchical-nav-orientiation') == 'vertical') {
+		if (rootEl.getAttribute('data-o-hierarchical-nav-orientiation') === 'vertical') {
 			var Nav = require('./src/js/Nav');
 			new Nav(rootEl);
 		} else {

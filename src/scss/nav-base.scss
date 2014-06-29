@@ -20,7 +20,6 @@
             color: oColorsGetColorFor(link-alt-hover, text);                
         }
     }
-    
 
     [data-o-hierarchical-nav-level] {
         li {
@@ -39,29 +38,29 @@
             }
         }
     }
+}
 
-    [data-o-hierarchical-nav-level='1'] {
-        & > a {
-            text-transform: uppercase;
-        }
+[data-o-hierarchical-nav-level='1'] {
+    & > a {
+        text-transform: uppercase;
+    }
+}
+
+[aria-controls] > a,
+.o-hierarchical-nav__parent > a {
+
+    i {
+        @include oFtIconsBaseIconStyles();
     }
 
-    [aria-controls] > a,
-    .o-hierarchical-nav__parent > a {
-
-        i {
-            @include oFtIconsBaseIconStyles();
-        }
-
-        .o-hierarchical-nav__parent__down-arrow {
-            @extend %o-ft-icons-icon--arrow-down;
-            font-size: 8px;
-        }
-        
-        .o-hierarchical-nav__parent__right-arrow {
-            @extend %o-ft-icons-icon--arrow-right;
-            font-size: 9px;
-            display: none;
-        }
+    .o-hierarchical-nav__parent__down-arrow {
+        @extend %o-ft-icons-icon--arrow-down;
+        font-size: 8px;
+    }
+    
+    .o-hierarchical-nav__parent__right-arrow {
+        @extend %o-ft-icons-icon--arrow-right;
+        font-size: 9px;
+        display: none;
     }
 }

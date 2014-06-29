@@ -30,7 +30,7 @@ function ResponsiveNav(rootEl) {
         moreListEl.innerHTML = '';
     }
 
-    function addItemToMoreList(text, href, ul) {
+    function addItemToMoreList(text, href) {
         var itemEl = document.createElement('li'),
             aEl = document.createElement('a');
         aEl.innerText = text;
@@ -43,8 +43,7 @@ function ResponsiveNav(rootEl) {
         emptyMoreList();
         for (var c = 0, l = hiddenEls.length; c < l; c++) {
             var aEl = hiddenEls[c].querySelector('a');
-            var ulEl = hiddenEls[c].querySelector('ul');
-            addItemToMoreList(aEl.innerText, aEl.href, ulEl);
+            addItemToMoreList(aEl.innerText, aEl.href);
         }
     }
 
