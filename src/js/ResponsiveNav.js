@@ -23,6 +23,7 @@ function ResponsiveNav(rootEl) {
         nav.resize();
         if (contentFilter) {
             contentFilter.squish();
+            populateMoreList(contentFilter.getHiddenItems());
         }
     }
 
@@ -30,7 +31,7 @@ function ResponsiveNav(rootEl) {
         moreListEl.innerHTML = '';
     }
 
-    function addItemToMoreList(text, href) {
+    function addItemToMoreList(text, href, ul) {
         var itemEl = document.createElement('li'),
             aEl = document.createElement('a');
         aEl.innerText = text;
@@ -43,7 +44,8 @@ function ResponsiveNav(rootEl) {
         emptyMoreList();
         for (var c = 0, l = hiddenEls.length; c < l; c++) {
             var aEl = hiddenEls[c].querySelector('a');
-            addItemToMoreList(aEl.innerText, aEl.href);
+            var ulEl = hiddenEls[c].querySelector('ul');
+            addItemToMoreList(aEl.innerText, aEl.href, ulEl);
         }
     }
 
@@ -75,15 +77,16 @@ function ResponsiveNav(rootEl) {
         rootDelegate = new DomDelegate(rootEl);
         contentFilterEl = rootEl.querySelector('ul');
         moreEl = rootEl.querySelector('[data-more]');
+        if (contentFilterEl) {
+            contentFilter = new SquishyList(contentFilterEl, { filterOnResize: false });
+        }
         if (moreEl && !isMegaDropdownControl(moreEl)) {
             moreListEl = document.createElement('ul');
             moreListEl.setAttribute('data-o-hierarchical-nav-level', '2');
             moreEl.appendChild(moreListEl);
             rootDelegate.on('oLayers.new', navExpandHandler);
         }
-        if (contentFilterEl) {
-            contentFilter = new SquishyList(contentFilterEl, { filterOnResize: false });
-        }
+
         rootDelegate.on('oSquishyList.change', contentFilterChangeHandler);
 
         var bodyDelegate = new DomDelegate(document.body);
