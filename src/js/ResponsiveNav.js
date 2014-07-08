@@ -1,7 +1,7 @@
 /*global require,module*/
 
 var SquishyList = require('o-squishy-list'),
-    DomDelegate = require('dom-delegate'),
+    DomDelegate = require('ftdomdelegate'),
     oViewport = require('o-viewport'),
     Nav = require('./Nav');
 
