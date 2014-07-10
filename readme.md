@@ -2,6 +2,17 @@
 
 Responsive hierarchical nav.
 
+## Browser Support
+
+Tested and working on:
+
+* Chrome
+* Firefox
+
+Tested and needs fixing:
+
+* IE: responsive doesn't work. Needs fix in [o-squishy-list](https://github.com/Financial-Times/o-squishy-list)
+
 ## Navigation
 
 All Navigation options have the same general markup structure that you can see in [main.mustache](https://github.com/Financial-Times/o-hierarchical-nav/blob/master/main.mustache)
