@@ -1,3 +1,0 @@
-@function oHierarchicalNavAsset ($asset) {
-  @return oAssetsUse($asset, $o-hierarchical-nav-assets-path, $o-hierarchical-nav-version)
-}
