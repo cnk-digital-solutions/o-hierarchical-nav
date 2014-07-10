@@ -34,18 +34,30 @@ function ResponsiveNav(rootEl) {
     function addItemToMoreList(text, href, ul) {
         var itemEl = document.createElement('li'),
             aEl = document.createElement('a');
-        aEl.innerText = text;
+
+        window.hiya = aEl;
+        if (typeof aEl.textContent !== 'undefined') {
+            console.log('hi');
+            aEl.textContent = text;
+            console.log(aEl);
+        } else {
+            aEl.innerText = text;
+        }
         aEl.href = href;
         itemEl.appendChild(aEl);
         moreListEl.appendChild(itemEl);
     }
 
     function populateMoreList(hiddenEls) {
-        emptyMoreList();
+        if (!isMegaDropdownControl(moreEl)) {
+            emptyMoreList();
+        }
         for (var c = 0, l = hiddenEls.length; c < l; c++) {
             var aEl = hiddenEls[c].querySelector('a');
             var ulEl = hiddenEls[c].querySelector('ul');
-            addItemToMoreList(aEl.innerText, aEl.href, ulEl);
+
+            var aText = (typeof aEl.textContent !== 'undefined') ? aEl.textContent : aEl.innerText;
+            addItemToMoreList(aText, aEl.href, ulEl);
         }
     }
 
