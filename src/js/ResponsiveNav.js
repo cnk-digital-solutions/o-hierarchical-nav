@@ -23,7 +23,9 @@ function ResponsiveNav(rootEl) {
         nav.resize();
         if (contentFilter) {
             contentFilter.squish();
-            populateMoreList(contentFilter.getHiddenItems());
+            if (!isMegaDropdownControl(moreEl)) {
+                populateMoreList(contentFilter.getHiddenItems());
+            }
         }
     }
 
@@ -31,15 +33,12 @@ function ResponsiveNav(rootEl) {
         moreListEl.innerHTML = '';
     }
 
-    function addItemToMoreList(text, href, ul) {
+    function addItemToMoreList(text, href) {
         var itemEl = document.createElement('li'),
             aEl = document.createElement('a');
 
-        window.hiya = aEl;
         if (typeof aEl.textContent !== 'undefined') {
-            console.log('hi');
             aEl.textContent = text;
-            console.log(aEl);
         } else {
             aEl.innerText = text;
         }
@@ -49,9 +48,7 @@ function ResponsiveNav(rootEl) {
     }
 
     function populateMoreList(hiddenEls) {
-        if (!isMegaDropdownControl(moreEl)) {
-            emptyMoreList();
-        }
+        emptyMoreList();
         for (var c = 0, l = hiddenEls.length; c < l; c++) {
             var aEl = hiddenEls[c].querySelector('a');
             var ulEl = hiddenEls[c].querySelector('ul');
