@@ -142,3 +142,11 @@ var oHierarchicalNav = require('o-hierarchical-nav');
 var nav = document.querySelector('.o-hierarchical-nav');
 var hierarchicalNav = new oHierarchicalNav(nav);
 ```
+
+Alternatively, a `o.DOMContentLoaded` event can be dispatched on the `document` to auto-construct a __o-hierarchical-nav__ object for each element with a `data-o-component="o-hierarchical-nav"` attribute:
+
+```javascript
+document.addEventListener("DOMContentLoaded", function() {
+    document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
+});
+```
