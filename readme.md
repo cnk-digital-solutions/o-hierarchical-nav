@@ -11,7 +11,9 @@ Tested and working on:
 
 Tested and needs fixing:
 
-* IE: responsive doesn't work. Needs fix in [o-squishy-list](https://github.com/Financial-Times/o-squishy-list)
+* IE: 
+    ** Responsive doesn't work. Needs fix in [o-squishy-list](https://github.com/Financial-Times/o-squishy-list)
+    ** IE8 doesn't support the `<nav>` element. Products need to use HTML5Shiv which is bundled in Modernizr.
 
 ## Navigation
 

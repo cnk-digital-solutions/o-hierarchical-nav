@@ -117,4 +117,22 @@ function ResponsiveNav(rootEl) {
 
 }
 
+ResponsiveNav.prototype.createAllIn = function(el) {
+    'use strict';
+    if (!el) {
+        el = document.body;
+    }
+
+    var navEls = el.querySelectorAll('[data-o-component="o-hierarchical-nav"]:not([data-o-hierarchical-nav--js])'),
+        responsiveNavs = [];
+    for (var c = 0, l = navEls.length; c < l; c++) {
+        if (navEls[c].getAttribute('data-o-hierarchical-nav-orientiation') === 'vertical') {
+            responsiveNavs.push(new Nav(navEls[c]));
+        } else {
+            responsiveNavs.push(new ResponsiveNav(navEls[c]));
+        }
+    }
+    return responsiveNavs;
+}
+
 module.exports = ResponsiveNav;
