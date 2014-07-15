@@ -11,7 +11,9 @@ Tested and working on:
 
 Tested and needs fixing:
 
-* IE: responsive doesn't work. Needs fix in [o-squishy-list](https://github.com/Financial-Times/o-squishy-list)
+* IE: 
+    ** Responsive doesn't work. Needs fix in [o-squishy-list](https://github.com/Financial-Times/o-squishy-list)
+    ** IE8 doesn't support the `<nav>` element. Products need to use HTML5Shiv which is bundled in Modernizr.
 
 ## Navigation
 
@@ -139,4 +141,12 @@ An __o-hierarchical-nav__ object must be constructed for every `<nav>` you have 
 var oHierarchicalNav = require('o-hierarchical-nav');
 var nav = document.querySelector('.o-hierarchical-nav');
 var hierarchicalNav = new oHierarchicalNav(nav);
+```
+
+Alternatively, a `o.DOMContentLoaded` event can be dispatched on the `document` to auto-construct a __o-hierarchical-nav__ object for each element with a `data-o-component="o-hierarchical-nav"` attribute:
+
+```javascript
+document.addEventListener("DOMContentLoaded", function() {
+    document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
+});
 ```

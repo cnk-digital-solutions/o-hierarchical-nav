@@ -8,6 +8,10 @@
         margin: 0;
         padding: 0;
         list-style-type: none;
+
+        li[aria-hidden=true] {
+            display: none;
+        }
     }
 
     a {
@@ -20,22 +24,18 @@
             color: oColorsGetColorFor(link-alt-hover, text);                
         }
     }
+}
 
-    [data-o-hierarchical-nav-level] {
-        li {
-            position: relative;
+[data-o-hierarchical-nav-level] {
+    li {
+        position: relative;
+        
+        > ul {
+            display: none;
+        }
 
-            &[aria-hidden=true] {
-                display: none;
-            }
-
-            > ul {
-                display: none;
-            }
-
-            &[aria-expanded='true'] > ul {
-                display: block;
-            }
+        &[aria-expanded='true'] > ul {
+            display: block;
         }
     }
 }
