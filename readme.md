@@ -91,10 +91,10 @@ If you don't want to use a responsive horizontal navigation, you can require [Na
 A 'More' item may be added to the top level which will be populated with a list of elements that have been hidden by __o-squishy-list__:
 
 ```html
-<li data-more class="o-hierarchical-nav__parent"><a>More</a></li>
+<li data-more class="o-hierarchical-nav__parent" aria-hidden="true"><a>More</a></li>
 ```
 
-This item will be hidden until its needed.
+This item will be hidden until its needed. It's recommended that `aria-hidden="true"` should be added to a 'More' item so that it won't appear when running on core experience.
 
 If there's a chance that all nav items will be hidden and added to the More list, then it's possible to change the text title of the More item depending on whether it contains _some_ or _all_ the navigation items:
 

@@ -86,6 +86,7 @@ function ResponsiveNav(rootEl) {
         rootDelegate = new DomDelegate(rootEl);
         contentFilterEl = rootEl.querySelector('ul');
         moreEl = rootEl.querySelector('[data-more]');
+        moreEl.setAttribute('aria-hidden', 'true');
         if (contentFilterEl) {
             contentFilter = new SquishyList(contentFilterEl, { filterOnResize: false });
         }
