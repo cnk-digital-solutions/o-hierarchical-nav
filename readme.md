@@ -6,14 +6,16 @@ Responsive hierarchical nav.
 
 Tested and working on:
 
-* Chrome
-* Firefox
+|  Browsers  | Primary Experience | Core Experience |
+|:----------:|:------------------:|:---------------:|
+|   Chrome   |        35+         |       35+       |
+|   Firefox  |        30+         |       30+       |
+|   Safari   |        7+          |       7+        |
+|   IE       |        9+          |       8+        |
 
-Tested and needs fixing:
+Known issues:
 
-* IE: 
-    ** Responsive doesn't work. Needs fix in [o-squishy-list](https://github.com/Financial-Times/o-squishy-list)
-    ** IE8 doesn't support the `<nav>` element. Products need to use HTML5Shiv which is bundled in Modernizr.
+* IE8 doesn't support the `<nav>` element. Products need to use HTML5Shiv which is bundled in Modernizr. Also, it runs as core experience.
 
 ## Navigation
 

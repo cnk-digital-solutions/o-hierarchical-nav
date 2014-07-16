@@ -7,7 +7,6 @@
     "browserFeatures": {
         "required": [
             "classlist",
-            "customevent",
             "createevent"
         ],
         "optional": [

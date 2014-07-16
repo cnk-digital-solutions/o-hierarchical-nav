@@ -5,7 +5,6 @@ var constructAll = function() {
 	oHierarchicalNav.prototype.createAllIn(document.body);
 	document.removeEventListener('o.DOMContentLoaded', constructAll);
 }
-
 document.addEventListener('o.DOMContentLoaded', constructAll);
 
 module.exports = oHierarchicalNav;
