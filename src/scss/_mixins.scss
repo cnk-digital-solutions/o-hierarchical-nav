@@ -1,3 +1,4 @@
+// Helper function for assets
 @function oHierarchicalNavAsset ($asset) {
-  @return oAssetsUse($asset, $o-hierarchical-nav-assets-path, $o-hierarchical-nav-version)
+  @return oAssetsResolve($asset, o-hierarchical-nav)
 }

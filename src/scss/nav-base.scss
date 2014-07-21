@@ -21,7 +21,7 @@
         }
     }
     
-
+    // Styles for all hierarchical levels
     [data-o-hierarchical-nav-level] {
         li {
             position: relative;
@@ -46,6 +46,7 @@
         }
     }
 
+    // Styles for parents of other navs or controlled elements
     [aria-controls] > a,
     .o-hierarchical-nav__parent > a {
 
