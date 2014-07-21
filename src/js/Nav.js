@@ -10,28 +10,34 @@ function Nav(rootEl) {
     var bodyDelegate = new DomDelegate(document.body),
         rootDelegate = new DomDelegate(rootEl);
 
+    // Get sub-level element
     function getChildListEl(el) {
         return el.querySelector('ul');
     }
 
+    // Check if element has sub-level nav
     function hasChildList(el) {
         return !!getChildListEl(el);
     }
 
+    // Get controlled element
     function getMegaDropdownEl(itemEl) {
         if (itemEl.hasAttribute('aria-controls')) {
             return document.getElementById(itemEl.getAttribute('aria-controls'));
         }
     }
 
+    // Check if element is a controller of another DOM element
     function isControlEl(el) {
         return !!(getChildListEl(el) || getMegaDropdownEl(el));
     }
 
+    // Check if element has been expanded
     function isExpanded(el) {
         return el.getAttribute('aria-expanded') === 'true';
     }
 
+    // Check if a certain element is inside the root nav
     function isElementInsideNav(el) {
         var expandedLevel1El = rootEl.querySelector('[data-o-hierarchical-nav-level="1"] > [aria-expanded="true"]'),
             expandedMegaDropdownEl,
@@ -51,18 +57,22 @@ function Nav(rootEl) {
         return false;
     }
 
+    // Get the level a nav is in
     function getLevel(el) {
         return parseInt(el.parentNode.getAttribute('data-o-hierarchical-nav-level'), 10);
     }
 
+    // Check if a level 2 nav will fit in the window
     function level2ListFitsInWindow(l2El) {
         return l2El.getBoundingClientRect().right < window.innerWidth;
     }
 
+    // Check if an element will have enough space to its right
     function elementFitsToRight(el1, el2) {
         return el1.getBoundingClientRect().right + el2.offsetWidth < window.innerWidth;
     }
 
+    // Depending on if an element fits to its right or not, change its class to apply correct css
     function positionChildListEl(parentEl, childEl) {
         parentEl.classList.remove('o-hierarchical-nav--align-right');
         parentEl.classList.remove('o-hierarchical-nav__outside-right');
@@ -81,18 +91,21 @@ function Nav(rootEl) {
         }
     }
 
+    // Hide an element
     function hideEl(el) {
         if (el) {
             el.setAttribute('aria-hidden', 'true');
         }
     }
 
+    // Display an element
     function showEl(el) {
         if (el) {
             el.removeAttribute('aria-hidden');
         }
     }
 
+    // Collapse all items from a certain node list
     function collapseAll(nodeList) {
         if (!nodeList) {
             nodeList = rootEl.querySelectorAll('[data-o-hierarchical-nav-level="1"] > li[aria-expanded=true]');
@@ -105,6 +118,7 @@ function Nav(rootEl) {
         });
     }
 
+    // Set an element as not expanded, and if it has children, do the same to them
     function collapseItem(itemEl) {
         itemEl.setAttribute('aria-expanded', 'false');
         if (hasChildList(itemEl)) {
@@ -114,6 +128,7 @@ function Nav(rootEl) {
         dispatchCloseEvent(itemEl);
     }
 
+    // Get same level items and collapse them
     function collapseSiblingItems(itemEl) {
         var listLevel = oDom.getClosestMatch(itemEl, 'ul').getAttribute('data-o-hierarchical-nav-level'),
             listItemEls = rootEl.querySelectorAll('[data-o-hierarchical-nav-level="' + listLevel + '"] > li[aria-expanded="true"]');
@@ -122,27 +137,26 @@ function Nav(rootEl) {
         }
     }
 
+    // Expand a nav item
     function expandItem(itemEl) {
         collapseSiblingItems(itemEl);
         itemEl.setAttribute('aria-expanded', 'true');
         positionChildListEl(itemEl, getChildListEl(itemEl));
         showEl(getMegaDropdownEl(itemEl));
-        dispatchCloseAllEvent(itemEl);
         dispatchExpandEvent(itemEl);
     }
 
+    // Helper method to dispatch o-layers new event
     function dispatchExpandEvent(itemEl) {
         utils.dispatchCustomEvent(itemEl, 'oLayers.new', {'zIndex': 10, 'el': itemEl});
     }
 
-    function dispatchCloseAllEvent(itemEl) {
-        utils.dispatchCustomEvent(itemEl, 'oLayers.closeAll', {'el': itemEl});
-    }
-
+    // Helper method to dispatch o-layers close event
     function dispatchCloseEvent(itemEl) {
         utils.dispatchCustomEvent(itemEl, 'oLayers.close', {'zIndex': 10, 'el': itemEl});
     }
 
+    // Handle clicks ourselved by expanding or collapsing selected element
     function handleClick(ev) {
         var itemEl = oDom.getClosestMatch(ev.target, 'li');
         if (itemEl && isControlEl(itemEl)) {
@@ -155,6 +169,7 @@ function Nav(rootEl) {
         }
     }
 
+    // Position a level 3 nav
     function positionLevel3s() {
         var openLevel2El = rootEl.querySelector('[data-o-hierarchical-nav-level="2"] > [aria-expanded="true"]'),
             openLevel3El = rootEl.querySelector('[data-o-hierarchical-nav-level="2"] > [aria-expanded="true"] > ul');
@@ -163,10 +178,12 @@ function Nav(rootEl) {
         }
     }
 
+    // Position level 3s on resize
     function resize() {
         positionLevel3s();
     }
 
+    // Set all tabIndexes of a tags to 0
     function setTabIndexes() {
         var aEls = rootEl.querySelectorAll('li > a:not([href])');
         for (var c = 0, l = aEls.length; c < l; c++) {
@@ -183,12 +200,6 @@ function Nav(rootEl) {
                 collapseAll();
             }
         });
-
-        bodyDelegate.on('oLayers.closeAll', function(e) {
-            if (!isElementInsideNav(e.detail.el)) {
-                collapseAll();
-            }
-        });
     }
 
     function init() {
@@ -201,6 +212,7 @@ function Nav(rootEl) {
                 handleClick(ev);
             }
         });
+        // Collapse all elements if the user clicks outside the nav
         bodyDelegate.on('click', function(ev) {
             if (!isElementInsideNav(ev.target)) {
                 collapseAll();
