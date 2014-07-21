@@ -1,8 +1,8 @@
 /*global require*/
 
-var oHierarchicalNav = require('../../main.js'),
-    navEls = document.querySelectorAll('.o-hierarchical-nav');
+require('../../main.js');
 
-for (var c = 0, l = navEls.length; c < l; c++) {
-    new oHierarchicalNav(navEls[c]);
-}
+document.addEventListener('DOMContentLoaded', function() {
+    'use strict';
+    document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
+});

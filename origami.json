@@ -6,7 +6,8 @@
     "supportStatus": "experimental",
     "browserFeatures": {
         "required": [
-            "classlist"
+            "classlist",
+            "createevent"
         ],
         "optional": [
             "datauri",

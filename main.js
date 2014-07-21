@@ -1,17 +1,10 @@
 /*global require,module*/
-function HierarchicalNav(rootEl) {
-
-	function init() {
-		if (rootEl.getAttribute('data-o-hierarchical-nav-orientiation') == 'vertical') {
-			var Nav = require('./src/js/Nav');
-			new Nav(rootEl);
-		} else {
-			var ResponsiveNav = require('./src/js/ResponsiveNav');
-			new ResponsiveNav(rootEl);
-		}
-	}
-
-	init();
+var oHierarchicalNav = require('./src/js/ResponsiveNav');
+var constructAll = function() {
+	'use strict';
+	oHierarchicalNav.prototype.createAllIn(document.body);
+	document.removeEventListener('o.DOMContentLoaded', constructAll);
 }
+document.addEventListener('o.DOMContentLoaded', constructAll);
 
-module.exports = HierarchicalNav;
+module.exports = oHierarchicalNav;

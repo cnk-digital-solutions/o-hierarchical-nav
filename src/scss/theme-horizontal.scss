@@ -3,16 +3,17 @@
     [data-o-hierarchical-nav-level='1'] {
         & > li {
             display: inline-block;
-            & > a {
-                display: inline-block;
-            }
         }
 
-        // Align sub-levels to the right when they wouldn't fit in the screen
-        & > .o-hierarchical-nav__parent.o-hierarchical-nav--align-right [data-o-hierarchical-nav-level='2'] {
-            position: absolute;
-            right: 0;
+        a {
+            display: inline-block;
         }
+    }
+
+    // Align sub-levels to the right when they wouldn't fit in the screen
+    .o-hierarchical-nav__parent.o-hierarchical-nav--align-right [data-o-hierarchical-nav-level='2'] {
+        position: absolute;
+        right: 0;
     }
 
     // Styling for all levels that aren't the first, which will be vertical navs
@@ -20,10 +21,11 @@
         z-index: 10;
         li {
             display: block;
-            border-top: 1px solid #666;
-            & > a {
-                display: block;
-            }
+            border-top: 1px solid #666666;
+        }
+
+        a {
+            display: block;
         }
     }
 
@@ -34,12 +36,12 @@
         border-left: $_o-hierarchical-nav-dropdown-border;
         background-color: oColorsGetPaletteColor(grey-tint5);
         position: absolute;
+    }
 
-        & > .o-hierarchical-nav__parent.o-hierarchical-nav__outside-right [data-o-hierarchical-nav-level='3'] {
-            position: absolute;
-            left: 100%;
-            top: 0;
-        }
+    .o-hierarchical-nav__parent.o-hierarchical-nav__outside-right [data-o-hierarchical-nav-level='3'] {
+        position: absolute;
+        left: 100%;
+        top: 0;
     }
 
     // Show a right arrow when sub-level nav will be displayed to the right
@@ -72,11 +74,10 @@
         position: absolute;
         right: 0;
         left: 0;
-        border-top: 20px solid oColorsGetPaletteColor(pink-tint2);
         padding: 15px 33px;
         min-height: 100px;
         width: 100%;
-        color: #333;
+        color: #333333;
         background-color: oColorsGetPaletteColor(pink-tint1);
         z-index: $_o-hierarchical-nav-mega-dropdown-zindex;
     }
@@ -84,7 +85,7 @@
     // Shore more or menu label depending if all elements are hidden or not
     .o-hierarchical-nav__more--some {
         .o-hierarchical-nav__more--if-some {
-            display: block;
+            display: inline-block;
         }
         .o-hierarchical-nav__more--if-all {
             display: none;
@@ -96,7 +97,7 @@
             display: none;
         }
         .o-hierarchical-nav__more--if-all {
-            display: block;
+            display: inline-block;
         }
     }
 }

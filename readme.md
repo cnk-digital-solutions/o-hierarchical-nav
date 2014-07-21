@@ -2,6 +2,21 @@
 
 Responsive hierarchical nav.
 
+## Browser Support
+
+Tested and working on:
+
+|  Browsers  | Primary Experience | Core Experience |
+|:----------:|:------------------:|:---------------:|
+|   Chrome   |        35+         |       35+       |
+|   Firefox  |        30+         |       30+       |
+|   Safari   |        7+          |       7+        |
+|   IE       |        9+          |       8+        |
+
+Known issues:
+
+* IE8 doesn't support the `<nav>` element. Products need to use HTML5Shiv which is bundled in Modernizr. Also, it runs as core experience.
+
 ## Navigation
 
 All Navigation options have the same general markup structure that you can see in [main.mustache](https://github.com/Financial-Times/o-hierarchical-nav/blob/master/main.mustache)
@@ -78,10 +93,10 @@ If you don't want to use a responsive horizontal navigation, you can require [Na
 A 'More' item may be added to the top level which will be populated with a list of elements that have been hidden by __o-squishy-list__:
 
 ```html
-<li data-more class="o-hierarchical-nav__parent"><a>More</a></li>
+<li data-more class="o-hierarchical-nav__parent" aria-hidden="true"><a>More</a></li>
 ```
 
-This item will be hidden until its needed.
+This item will be hidden until its needed. It's recommended that `aria-hidden="true"` should be added to a 'More' item so that it won't appear when running on core experience.
 
 If there's a chance that all nav items will be hidden and added to the More list, then it's possible to change the text title of the More item depending on whether it contains _some_ or _all_ the navigation items:
 
@@ -128,4 +143,12 @@ An __o-hierarchical-nav__ object must be constructed for every `<nav>` you have 
 var oHierarchicalNav = require('o-hierarchical-nav');
 var nav = document.querySelector('.o-hierarchical-nav');
 var hierarchicalNav = new oHierarchicalNav(nav);
+```
+
+Alternatively, a `o.DOMContentLoaded` event can be dispatched on the `document` to auto-construct a __o-hierarchical-nav__ object for each element with a `data-o-component="o-hierarchical-nav"` attribute:
+
+```javascript
+document.addEventListener("DOMContentLoaded", function() {
+    document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
+});
 ```

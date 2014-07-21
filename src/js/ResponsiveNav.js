@@ -1,7 +1,7 @@
 /*global require,module*/
 
 var SquishyList = require('o-squishy-list'),
-    DomDelegate = require('dom-delegate'),
+    DomDelegate = require('ftdomdelegate'),
     oViewport = require('o-viewport'),
     Nav = require('./Nav');
 
@@ -23,6 +23,9 @@ function ResponsiveNav(rootEl) {
         nav.resize();
         if (contentFilter) {
             contentFilter.squish();
+            if (!isMegaDropdownControl(moreEl)) {
+                populateMoreList(contentFilter.getHiddenItems());
+            }
         }
     }
 
@@ -30,10 +33,15 @@ function ResponsiveNav(rootEl) {
         moreListEl.innerHTML = '';
     }
 
-    function addItemToMoreList(text, href, ul) {
+    function addItemToMoreList(text, href) {
         var itemEl = document.createElement('li'),
             aEl = document.createElement('a');
-        aEl.innerText = text;
+
+        if (typeof aEl.textContent !== 'undefined') {
+            aEl.textContent = text;
+        } else {
+            aEl.innerText = text;
+        }
         aEl.href = href;
         itemEl.appendChild(aEl);
         moreListEl.appendChild(itemEl);
@@ -44,7 +52,9 @@ function ResponsiveNav(rootEl) {
         for (var c = 0, l = hiddenEls.length; c < l; c++) {
             var aEl = hiddenEls[c].querySelector('a');
             var ulEl = hiddenEls[c].querySelector('ul');
-            addItemToMoreList(aEl.innerText, aEl.href, ulEl);
+
+            var aText = (typeof aEl.textContent !== 'undefined') ? aEl.textContent : aEl.innerText;
+            addItemToMoreList(aText, aEl.href, ulEl);
         }
     }
 
@@ -76,15 +86,17 @@ function ResponsiveNav(rootEl) {
         rootDelegate = new DomDelegate(rootEl);
         contentFilterEl = rootEl.querySelector('ul');
         moreEl = rootEl.querySelector('[data-more]');
+        moreEl.setAttribute('aria-hidden', 'true');
+        if (contentFilterEl) {
+            contentFilter = new SquishyList(contentFilterEl, { filterOnResize: false });
+        }
         if (moreEl && !isMegaDropdownControl(moreEl)) {
             moreListEl = document.createElement('ul');
             moreListEl.setAttribute('data-o-hierarchical-nav-level', '2');
             moreEl.appendChild(moreListEl);
             rootDelegate.on('oLayers.new', navExpandHandler);
         }
-        if (contentFilterEl) {
-            contentFilter = new SquishyList(contentFilterEl, { filterOnResize: false });
-        }
+
         rootDelegate.on('oSquishyList.change', contentFilterChangeHandler);
 
         var bodyDelegate = new DomDelegate(document.body);
@@ -104,6 +116,24 @@ function ResponsiveNav(rootEl) {
     this.resize = resize;
     this.destroy = destroy;
 
+}
+
+ResponsiveNav.prototype.createAllIn = function(el) {
+    'use strict';
+    if (!el) {
+        el = document.body;
+    }
+
+    var navEls = el.querySelectorAll('[data-o-component="o-hierarchical-nav"]:not([data-o-hierarchical-nav--js])'),
+        responsiveNavs = [];
+    for (var c = 0, l = navEls.length; c < l; c++) {
+        if (navEls[c].getAttribute('data-o-hierarchical-nav-orientiation') === 'vertical') {
+            responsiveNavs.push(new Nav(navEls[c]));
+        } else {
+            responsiveNavs.push(new ResponsiveNav(navEls[c]));
+        }
+    }
+    return responsiveNavs;
 }
 
 module.exports = ResponsiveNav;

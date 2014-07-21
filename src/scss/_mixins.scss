@@ -1,4 +1,0 @@
-// Helper function for assets
-@function oHierarchicalNavAsset ($asset) {
-  @return oAssetsResolve($asset, o-hierarchical-nav)
-}
