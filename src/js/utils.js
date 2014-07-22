@@ -1,5 +1,6 @@
 /*global exports*/
 
+// Helper function that converts a list of elements into an array
 function nodeListToArray(nl) {
     'use strict';
     return [].map.call(nl, function(element) {
@@ -7,6 +8,7 @@ function nodeListToArray(nl) {
     });
 }
 
+// Helper function to dispatch events
 function dispatchCustomEvent(el, name, data) {
     'use strict';
     if (document.createEvent && el.dispatchEvent) {

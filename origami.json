@@ -3,7 +3,7 @@
     "origamiType": "module",
     "origamiVersion": 1,
     "support": "alberto.elias@ft.com",
-    "supportStatus": "experimental",
+    "supportStatus": "active",
     "browserFeatures": {
         "required": [
             "classlist",
@@ -22,7 +22,7 @@
     "demos": [
         {
             "path": "/demos/nav.html",
-            "expanded": true,
+            "expanded": false,
             "description": ""
         },
         {
@@ -32,7 +32,7 @@
         },
         {
             "path": "/demos/mega-dropdown.html",
-            "expanded": true,
+            "expanded": false,
             "description": ""
         }
     ]

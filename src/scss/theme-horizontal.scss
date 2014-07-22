@@ -10,11 +10,13 @@
         }
     }
 
+    // Align sub-levels to the right when they wouldn't fit in the screen
     .o-hierarchical-nav__parent.o-hierarchical-nav--align-right [data-o-hierarchical-nav-level='2'] {
         position: absolute;
         right: 0;
     }
 
+    // Styling for all levels that aren't the first, which will be vertical navs
     [data-o-hierarchical-nav-level]:not([data-o-hierarchical-nav-level='1']) {
         z-index: 10;
         li {
@@ -27,6 +29,7 @@
         }
     }
 
+    // Styling for level 2
     [data-o-hierarchical-nav-level='2'] {
         border-right: $_o-hierarchical-nav-dropdown-border;
         border-bottom: $_o-hierarchical-nav-dropdown-border;
@@ -41,17 +44,7 @@
         top: 0;
     }
 
-    [data-o-hierarchical-nav-level='3'] {
-        background-color: oColorsGetPaletteColor(grey-tint4);
-    }
-
-    .hierarchical-nav__outside-right > [data-o-hierarchical-nav-level] {
-        margin-top: -2px;
-        border-top: $_o-hierarchical-nav-dropdown-border;
-        border-right: $_o-hierarchical-nav-dropdown-border;
-        border-bottom: $_o-hierarchical-nav-dropdown-border;
-    }
-
+    // Show a right arrow when sub-level nav will be displayed to the right
     .o-hierarchical-nav__parent.o-hierarchical-nav__outside-right[aria-expanded="true"] {
         .o-hierarchical-nav__parent__right-arrow {
             display: inline-block;
@@ -62,6 +55,20 @@
         }
     }
 
+    // Borders for navs displayed to the right
+    .hierarchical-nav__outside-right > [data-o-hierarchical-nav-level] {
+        margin-top: -2px;
+        border-top: $_o-hierarchical-nav-dropdown-border;
+        border-right: $_o-hierarchical-nav-dropdown-border;
+        border-bottom: $_o-hierarchical-nav-dropdown-border;
+    }
+
+    // Styling for level 3
+    [data-o-hierarchical-nav-level='3'] {
+        background-color: oColorsGetPaletteColor(grey-tint4);
+    }
+
+    // Styling for a megadropdown. They are outside of the nav element, so need @at-root
     @at-root .o-hierarchical-nav__mega-dropdown {
         box-sizing: border-box;
         position: absolute;
@@ -75,6 +82,7 @@
         z-index: $_o-hierarchical-nav-mega-dropdown-zindex;
     }
 
+    // Shore more or menu label depending if all elements are hidden or not
     .o-hierarchical-nav__more--some {
         .o-hierarchical-nav__more--if-some {
             display: inline-block;
