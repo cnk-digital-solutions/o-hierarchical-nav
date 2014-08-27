@@ -234,18 +234,4 @@ function Nav(rootEl) {
 
 }
 
-Nav.prototype.createAllIn = function(el) {
-    'use strict';
-    if (!el) {
-        el = document.body;
-    }
-
-    var navEls = el.querySelectorAll('[data-o-component="o-hierarchical-nav"]:not([data-o-hierarchical-nav--js])'),
-        navs = [];
-    for (var c = 0, l = navEls.length; c < l; c++) {
-        navs.push(new Nav(navEls[c]));
-    }
-    return navs;
-}
-
 module.exports = Nav;
