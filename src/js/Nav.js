@@ -203,6 +203,11 @@ function Nav(rootEl) {
     }
 
     function init() {
+        if (!rootEl) {
+            rootEl = document.body;
+        } else if (!(rootEl instanceof HTMLElement)) {
+            rootEl = document.querySelector(rootEl);
+        }
         rootEl.setAttribute('data-o-hierarchical-nav--js', '');
         setTabIndexes();
         setLayersContext();
