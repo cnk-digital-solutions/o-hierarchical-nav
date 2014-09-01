@@ -90,6 +90,11 @@ function ResponsiveNav(rootEl) {
     }
 
     function init() {
+        if (!rootEl) {
+            rootEl = document.body;
+        } else if (!(rootEl instanceof HTMLElement)) {
+            rootEl = document.querySelector(rootEl);
+        }
         nav = new Nav(rootEl);
         rootDelegate = new DomDelegate(rootEl);
         contentFilterEl = rootEl.querySelector('ul');
@@ -128,10 +133,12 @@ function ResponsiveNav(rootEl) {
 }
 
 // Initializes all nav elements in the page or whatever element is passed to it
-ResponsiveNav.prototype.createAllIn = function(el) {
+ResponsiveNav.init = function(el) {
     'use strict';
     if (!el) {
         el = document.body;
+    } else if (!(el instanceof HTMLElement)) {
+        el = document.querySelector(el);
     }
 
     var navEls = el.querySelectorAll('[data-o-component="o-hierarchical-nav"]:not([data-o-hierarchical-nav--js])'),

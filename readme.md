@@ -152,3 +152,5 @@ document.addEventListener("DOMContentLoaded", function() {
     document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
 });
 ```
+
+All this really does is run the `oHierarchicalNav.init()` function, so if you don't want this module to initialise with all the others, you can run this when it suits you best.
