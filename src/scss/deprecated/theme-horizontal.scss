@@ -1,12 +1,4 @@
-/**
- * @group o-heirarchical-nav
- * @link http://registry.origami.ft.com/components/o-hierarchical-nav
-**/
-
-/**
- * Base theme for horizonal navigation
- */
-@mixin oHierarchicalNavHorizontalTheme {
+%o-hierarchical-nav--horizontal-theme {
 
     [data-o-hierarchical-nav-level='1'] {
         & > li {
