@@ -122,10 +122,10 @@ We use [o-ft-icons](https://github.com/Financial-Times/o-ft-icons) adding an `<i
 
 ## Styling
 
-There are two base styles of Navigation for modules and products to extend:
+There are two base mixins for modules and products to include:
 
-* __Horizontal__: `%o-hierarchical-nav--horizontal-theme`
-* __Vertical__: `%o-hierarchical-nav--vertical-theme`
+* __Horizontal__: `@include oHierarchicalNavHorizontalTheme`
+* __Vertical__: `@include oHierarchicalNavVerticalTheme`
 
 Things that are important to add to your theme are:
 
