@@ -4,6 +4,7 @@
 .o-hierarchical-nav {
 	font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
 	white-space: nowrap;
+
 	ul {
 		margin: 0;
 		padding: 0;
@@ -20,6 +21,7 @@
 		outline: none;
 		color: #ffffff;
 
+		&:focus,
 		#{$o-hoverable-if-hover-enabled} &:hover {
 			color: oColorsGetColorFor(link-title-hover, text);
 		}
@@ -30,6 +32,7 @@
 [data-o-hierarchical-nav-level] {
 	li {
 		position: relative;
+
 		> ul {
 			display: none;
 		}
@@ -40,16 +43,13 @@
 	}
 }
 
-[data-o-hierarchical-nav-level='1'] {
-	> a {
-		text-transform: uppercase;
-	}
+[data-o-hierarchical-nav-level='1'] > a {
+	text-transform: uppercase;
 }
 
 // Styles for parents of other navs or controlled elements
 [aria-controls] > a,
 .o-hierarchical-nav__parent > a {
-
 	i {
 		@include oFtIconsBaseIconStyles();
 	}
