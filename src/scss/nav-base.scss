@@ -1,6 +1,3 @@
-@include oFtIconsFontFace();
-@include oFontsInclude(BentonSans, normal);
-
 .o-hierarchical-nav {
 	font-family: oFontsGetFontFamilyWithFallbacks(BentonSans);
 	white-space: nowrap;
