@@ -2,6 +2,11 @@ $o-ft-icons-is-silent: false;
 
 @import "../../../main";
 
+body {
+	font-family: BentonSans, sans-serif;
+}
+
+
 .demo__title {
 	margin: 20px 0 10px;
 	border-top: 1px solid #dddddd;
