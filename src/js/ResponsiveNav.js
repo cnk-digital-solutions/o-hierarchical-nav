@@ -65,6 +65,10 @@ function ResponsiveNav(rootEl) {
 
 	// If all elements are hidden, add the all modifier, if not, the some modifier
 	function setMoreElClass(remainingItems) {
+		if (!moreEl) {
+			return;
+		}
+
 		if (remainingItems === 0) {
 			moreEl.classList.add('o-hierarchical-nav__more--all');
 			moreEl.classList.remove('o-hierarchical-nav__more--some');
@@ -99,16 +103,19 @@ function ResponsiveNav(rootEl) {
 		rootDelegate = new DomDelegate(rootEl);
 		contentFilterEl = rootEl.querySelector('ul');
 		moreEl = rootEl.querySelector('[data-more]');
-		moreEl.setAttribute('aria-hidden', 'true');
+
 		if (contentFilterEl) {
 			contentFilter = new SquishyList(contentFilterEl, { filterOnResize: false });
 		}
 		// If there's a more element, add a ul tag where hidden elements will be appended
-		if (moreEl && !isMegaDropdownControl(moreEl)) {
-			moreListEl = document.createElement('ul');
-			moreListEl.setAttribute('data-o-hierarchical-nav-level', '2');
-			moreEl.appendChild(moreListEl);
-			rootDelegate.on('oLayers.new', navExpandHandler);
+		if (moreEl) {
+			moreEl.setAttribute('aria-hidden', 'true');
+			if (!isMegaDropdownControl(moreEl)) {
+				moreListEl = document.createElement('ul');
+				moreListEl.setAttribute('data-o-hierarchical-nav-level', '2');
+				moreEl.appendChild(moreListEl);
+				rootDelegate.on('oLayers.new', navExpandHandler);
+			}
 		}
 
 		rootDelegate.on('oSquishyList.change', contentFilterChangeHandler);
