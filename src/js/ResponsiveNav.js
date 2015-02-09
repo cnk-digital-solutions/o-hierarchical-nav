@@ -130,6 +130,7 @@ function ResponsiveNav(rootEl) {
 
 	function destroy() {
 		rootDelegate.destroy();
+		rootEl.removeAttribute('data-o-hierarchical-nav--js');
 	}
 
 	init();
