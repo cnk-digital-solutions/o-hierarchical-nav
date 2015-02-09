@@ -116,10 +116,6 @@ function ResponsiveNav(rootEl) {
 				moreEl.appendChild(moreListEl);
 				rootDelegate.on('oLayers.new', navExpandHandler);
 			}
-			moreListEl = document.createElement('ul');
-			moreListEl.setAttribute('data-o-hierarchical-nav-level', '2');
-			moreEl.appendChild(moreListEl);
-			rootDelegate.on('oLayers.new', navExpandHandler);
 		}
 
 		rootDelegate.on('oSquishyList.change', contentFilterChangeHandler);
