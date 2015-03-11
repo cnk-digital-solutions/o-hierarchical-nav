@@ -127,6 +127,11 @@ function Nav(rootEl) {
 	function collapseItem(itemEl) {
 		itemEl.setAttribute('aria-expanded', 'false');
 
+		if (utils.isIE8) {
+			itemEl.classList.add('forceIErepaint');
+			itemEl.classList.remove('forceIErepaint');
+		}
+
 		if (hasChildList(itemEl)) {
 			collapseAll(getChildListEl(itemEl).children);
 		}

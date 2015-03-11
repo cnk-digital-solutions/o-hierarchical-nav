@@ -23,5 +23,18 @@ function dispatchCustomEvent(el, name, data) {
 	}
 }
 
+function isIE8() {
+	var b = document.createElement('B');
+	var docElem = document.documentElement;
+	var isIE;
+
+	b.innerHTML = '<!--[if IE 8]><b id="ie8test"></b><![endif]-->';
+	docElem.appendChild(b);
+	isIE = !!document.getElementById('ie8test');
+	docElem.removeChild(b);
+	return isIE;
+}
+
+exports.isIE8 = isIE8();
 exports.nodeListToArray = nodeListToArray;
 exports.dispatchCustomEvent = dispatchCustomEvent;
