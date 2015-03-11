@@ -18,6 +18,12 @@
 		outline: none;
 		color: #ffffff;
 
+		// Prevent accidental double clicks and long taps from selecting text
+		// scss-lint:disable VendorPrefixes
+		-moz-user-select: none;
+		-webkit-user-select: none;
+		-ms-user-select: none;
+
 		&:focus,
 		#{$o-hoverable-if-hover-enabled} &:hover {
 			color: oColorsGetColorFor(link-title-hover, text);
