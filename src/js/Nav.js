@@ -185,10 +185,12 @@ function Nav(rootEl) {
 
 	// Set all tabIndexes of a tags to 0
 	function setTabIndexes() {
-		var aEls = rootEl.querySelectorAll('li > a:not([href])');
+		var aEls = rootEl.querySelectorAll('li > a');
 		for (var c = 0, l = aEls.length; c < l; c++) {
-			if (aEls[c].tabIndex === 0) { // Don't override tabIndex if something else has set it, but otherwise set it to zero to make it focusable.
-				aEls[c].tabIndex = 0;
+			if (!aEls[c].hasAttribute('href')) {
+				if (aEls[c].tabIndex === 0) { // Don't override tabIndex if something else has set it, but otherwise set it to zero to make it focusable.
+					aEls[c].tabIndex = 0;
+				}
 			}
 		}
 	}

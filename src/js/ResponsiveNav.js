@@ -148,14 +148,16 @@ ResponsiveNav.init = function(el) {
 		el = document.querySelector(el);
 	}
 
-	var navEls = el.querySelectorAll('[data-o-component="o-hierarchical-nav"]:not([data-o-hierarchical-nav--js])'),
-		responsiveNavs = [];
+	var navEls = el.querySelectorAll('[data-o-component="o-hierarchical-nav"]');
+	var responsiveNavs = [];
 	for (var c = 0, l = navEls.length; c < l; c++) {
-		// If it's a vertical nav, we don't need all the responsive methods
-		if (navEls[c].getAttribute('data-o-hierarchical-nav-orientiation') === 'vertical') {
-			responsiveNavs.push(new Nav(navEls[c]));
-		} else {
-			responsiveNavs.push(new ResponsiveNav(navEls[c]));
+		if (!navEls[c].hasAttribute('data-o-hierarchical-nav--js')) {
+			// If it's a vertical nav, we don't need all the responsive methods
+			if (navEls[c].getAttribute('data-o-hierarchical-nav-orientiation') === 'vertical') {
+				responsiveNavs.push(new Nav(navEls[c]));
+			} else {
+				responsiveNavs.push(new ResponsiveNav(navEls[c]));
+			}
 		}
 	}
 	return responsiveNavs;
