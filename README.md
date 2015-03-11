@@ -16,7 +16,6 @@ Tested and working on:
 Known issues:
 
 * IE < 9 does't support the `<nav>` element. Products that need to support old IEs should use [HTML5Shiv](https://github.com/aFarkas/html5shiv) (note that it's bundled by default in [Modernizr](http://modernizr.com/).
-* IE 8 is slow to hide items that should collapse instantly. This affects usability in some cases where the navigation is complex and deep.
 
 ## Navigation
 
