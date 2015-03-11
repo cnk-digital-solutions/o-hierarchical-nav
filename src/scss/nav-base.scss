@@ -6,7 +6,7 @@
 		padding: 0;
 		list-style-type: none;
 
-		li[aria-hidden=true] {
+		[aria-hidden=true] {
 			display: none;
 		}
 	}
