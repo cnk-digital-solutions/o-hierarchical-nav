@@ -22,9 +22,14 @@
 		right: 0;
 	}
 
-	// Styling for all levels that aren't the first, which will be vertical navs
-	[data-o-hierarchical-nav-level]:not([data-o-hierarchical-nav-level='1']) {
+	// Styling for all nested levels, which will be vertical navs
+	[data-o-hierarchical-nav-level] [data-o-hierarchical-nav-level] {
 		z-index: 10;
+
+		// Sub menus should be at least as wide as their parent
+		min-width: 100%;
+		box-sizing: border-box;
+
 		li {
 			display: block;
 			border-top: 1px solid #666666;
