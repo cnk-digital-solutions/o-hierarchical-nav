@@ -1,6 +1,6 @@
 # Hierarchical nav [![Build Status](https://travis-ci.org/Financial-Times/o-hierarchical-nav.png?branch=master)](https://travis-ci.org/Financial-Times/o-hierarchical-nav)
 
-Responsive hierarchical nav.
+Responsive hierarchical navigation pattern.
 
 ## Browser Support
 
@@ -11,22 +11,23 @@ Tested and working on:
 |   Chrome   |        35+         |       35+       |
 |   Firefox  |        30+         |       30+       |
 |   Safari   |        7+          |       7+        |
-|   IE       |        9+          |       8+        |
+|   IE       |        8+          |       7+        |
 
 Known issues:
 
-* IE8 doesn't support the `<nav>` element. Products need to use HTML5Shiv which is bundled in Modernizr. Also, it runs as core experience.
+* IE < 9 does't support the `<nav>` element. Products that need to support old IEs should use [HTML5Shiv](https://github.com/aFarkas/html5shiv) (note that it's bundled by default in [Modernizr](http://modernizr.com/).
+* IE 8 is slow to hide items that should collapse instantly. This affects usability in some cases where the navigation is complex and deep.
 
 ## Navigation
 
-All Navigation options have the same general markup structure that you can see in [main.mustache](https://github.com/Financial-Times/o-hierarchical-nav/blob/master/main.mustache)
+All navigation options have the same general markup structure that you can see in [main.mustache](https://github.com/Financial-Times/o-hierarchical-nav/blob/master/main.mustache)
 
 Each _navigation item_ can be either:
 
 * __Plain text__: must still be wrapped in `<a>` tag, e.g. `<a>World</a>`
 * __Linked text__: e.g. `<a href="/world">World</a>`
 
-...and can have one of the following behaviours:
+…and can have one of the following behaviours:
 
 * __Standalone item__
 * __Parent of sub-level__: opens further navigation list with child options
@@ -39,29 +40,29 @@ Where a _navigation item_ is both a link and a parent or controller for mega-dro
 The `<li>` should be given a class of `o-hierarchical-nav__parent`, and should contain another `<ul>` list that declares its level via a data attribute:
 
 ```html
-    <li class="o-hierarchical-nav__parent"><a>Level 2 item with sub-level</a>
-        <ul data-o-hierarchical-nav-level="3">
-            <li><a>Level 3 item</a></li>
-            <li><a>Level 3 item</a></li>
-        </ul>
-    </li>
+<li class="o-hierarchical-nav__parent"><a>Level 2 item with sub-level</a>
+	<ul data-o-hierarchical-nav-level="3">
+		<li><a>Level 3 item</a></li>
+		<li><a>Level 3 item</a></li>
+	</ul>
+</li>
 ```
 
 When the nav item is clicked, the `<li>` will have an `aria-expanded` attribute toggled, which will control the visibility of the child list.
 
 ### Controller for DOM element
 
-The `<li>` should be given an `aria-controls` attribute with the value being the ID the DOM element to control, for example:
+The `<li>` should be given an `aria-controls` attribute with the value being the ID of the DOM element to control, for example:
 
 ```html
-    <li aria-controls="megadropdown"><a>Mega dropdown</a></li>
-    
-    ...
-    
-    <div id="megadropdown" aria-hidden="true">
-        Mega-dropdown content
-    </div>
-    
+<li aria-controls="megadropdown"><a>Mega dropdown</a></li>
+
+...
+
+<div id="megadropdown" aria-hidden="true">
+	Mega-dropdown content
+</div>
+	
 ```
 
 When the nav item is clicked, the element targeted by the `aria-control` attribute will have its `aria-hidden` attribute toggled.
@@ -76,11 +77,11 @@ __Horizontal navigation__ styles use [o-squishy-list](https://github.com/Financi
 
 ```html
 <nav>
-    <ul data-o-hierarchical-nav-level="1">
-        <li data-priority="2"><a>Important page</a></li>
-        <li data-priority="3"><a>Less important page</a></li>
-        <li data-priority="1"><a>Home</a></li>
-    </ul>
+	<ul data-o-hierarchical-nav-level="1">
+		<li data-priority="2"><a>Important page</a></li>
+		<li data-priority="3"><a>Less important page</a></li>
+		<li data-priority="1"><a>Home</a></li>
+	</ul>
 </nav>
 ```
 
@@ -96,7 +97,7 @@ A 'More' item may be added to the top level which will be populated with a list 
 <li data-more class="o-hierarchical-nav__parent" aria-hidden="true"><a>More</a></li>
 ```
 
-This item will be hidden until its needed. It's recommended that `aria-hidden="true"` should be added to a 'More' item so that it won't appear when running on core experience.
+This item is be hidden until it's needed. It's recommended that `aria-hidden="true"` should be added to a 'More' item so that it won't appear when running on core experience.
 
 If there's a chance that all nav items will be hidden and added to the More list, then it's possible to change the text title of the More item depending on whether it contains _some_ or _all_ the navigation items:
 
@@ -104,20 +105,16 @@ If there's a chance that all nav items will be hidden and added to the More list
 <li data-more class="o-hierarchical-nav__parent"><a><span class="nav__more--if-some">More</span><span class="nav__more--if-all">Menu</span></a></li>
 ```
 
-## Hover events
-
-It implements [o-hoverable](https://github.com/Financial-Times/o-hoverable). If a product wants hover effects to be triggered, it needs to [implement o-hoverable](https://github.com/Financial-Times/o-hoverable#using-in-a-product) too.
-
 ## Vertical hierarchical nav
 
-To make your nav work properly in a vertical layout, you have to add `data-o-hierarchical-nav-orientiation="vertical"` to your `<nav>`.
+To make a nav work in a vertical layout, add `data-o-hierarchical-nav-orientiation="vertical"` to the `<nav>`.
 
 ## Arrows
 
-We use [o-ft-icons](https://github.com/Financial-Times/o-ft-icons) adding an `<i>` tag with the class `.o-hierarchical-nav__parent__down-arrow` in the `<a>` tag with the down arrow. When using a horizontal theme, you can also add a right arrow using the class `.o-hierarchical-nav__parent__right-arrow` when it's an element in a `data-o-hierarchical-nav-level="2"`.
+Add a `<i></i>` to display an arrow icon at the end of an `<a>` element:
 
 ```html 
-<li class="o-hierarchical-nav__parent"><a>Item 3.2 (parent) <i class="o-hierarchical-nav__parent__down-arrow"></i><i class="o-hierarchical-nav__parent__right-arrow"></i></a>
+<li class="o-hierarchical-nav__parent"><a>Item 3.2 (parent) <i></i></a>
 ```
 
 ## Styling
@@ -135,7 +132,7 @@ Things that are important to add to your theme are:
 
 If you want to style __megadropdowns__, you need to add `@at-root` before the `.o-hierarchical-nav__mega-dropdown` class.
 
-## Javascript instantiation
+## JavaScript instantiation
 
 An __o-hierarchical-nav__ object must be constructed for every `<nav>` you have on your page that uses this module.
 
@@ -149,7 +146,7 @@ Alternatively, a `o.DOMContentLoaded` event can be dispatched on the `document` 
 
 ```javascript
 document.addEventListener("DOMContentLoaded", function() {
-    document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
+	document.dispatchEvent(new CustomEvent('o.DOMContentLoaded'));
 });
 ```
 
