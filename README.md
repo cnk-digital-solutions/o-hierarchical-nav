@@ -61,7 +61,6 @@ The `<li>` should be given an `aria-controls` attribute with the value being the
 <div id="megadropdown" aria-hidden="true">
 	Mega-dropdown content
 </div>
-	
 ```
 
 When the nav item is clicked, the element targeted by the `aria-control` attribute will have its `aria-hidden` attribute toggled.
