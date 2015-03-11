@@ -24,6 +24,8 @@ function dispatchCustomEvent(el, name, data) {
 }
 
 function isIE8() {
+	'use strict';
+
 	var b = document.createElement('B');
 	var docElem = document.documentElement;
 	var isIE;
