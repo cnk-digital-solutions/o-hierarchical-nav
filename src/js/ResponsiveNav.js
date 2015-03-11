@@ -1,19 +1,19 @@
 /*global require,module*/
 'use strict';
 
-var SquishyList = require('o-squishy-list'),
-	DomDelegate = require('ftdomdelegate'),
-	oViewport = require('o-viewport'),
-	Nav = require('./Nav');
+var SquishyList = require('o-squishy-list');
+var DomDelegate = require('ftdomdelegate');
+var oViewport = require('o-viewport');
+var Nav = require('./Nav');
 
 function ResponsiveNav(rootEl) {
 
-	var rootDelegate,
-		nav,
-		contentFilterEl,
-		contentFilter,
-		moreEl,
-		moreListEl;
+	var rootDelegate;
+	var nav;
+	var contentFilterEl;
+	var contentFilter;
+	var moreEl;
+	var moreListEl;
 
 	// Check if element is a controller of another DOM element
 	function isMegaDropdownControl(el) {
@@ -23,6 +23,7 @@ function ResponsiveNav(rootEl) {
 	// On resize, apply o-squishy-list, and, if it has a sub-level dom, populate more list
 	function resize() {
 		nav.resize();
+
 		if (contentFilter) {
 			contentFilter.squish();
 			if (!isMegaDropdownControl(moreEl)) {
@@ -38,14 +39,15 @@ function ResponsiveNav(rootEl) {
 
 	// Get the information from the element and create a new li tag with the element's text to append more list
 	function addItemToMoreList(text, href) {
-		var itemEl = document.createElement('li'),
-			aEl = document.createElement('a');
+		var itemEl = document.createElement('li');
+		var aEl = document.createElement('a');
 
 		if (typeof aEl.textContent !== 'undefined') {
 			aEl.textContent = text;
 		} else {
 			aEl.innerText = text;
 		}
+
 		aEl.href = href;
 		itemEl.appendChild(aEl);
 		moreListEl.appendChild(itemEl);
@@ -54,6 +56,7 @@ function ResponsiveNav(rootEl) {
 	// For every hidden item, add it to the more list
 	function populateMoreList(hiddenEls) {
 		emptyMoreList();
+
 		for (var c = 0, l = hiddenEls.length; c < l; c++) {
 			var aEl = hiddenEls[c].querySelector('a');
 			var ulEl = hiddenEls[c].querySelector('ul');
@@ -99,6 +102,7 @@ function ResponsiveNav(rootEl) {
 		} else if (!(rootEl instanceof HTMLElement)) {
 			rootEl = document.querySelector(rootEl);
 		}
+
 		nav = new Nav(rootEl);
 		rootDelegate = new DomDelegate(rootEl);
 		contentFilterEl = rootEl.querySelector('ul');
@@ -107,9 +111,11 @@ function ResponsiveNav(rootEl) {
 		if (contentFilterEl) {
 			contentFilter = new SquishyList(contentFilterEl, { filterOnResize: false });
 		}
+
 		// If there's a more element, add a ul tag where hidden elements will be appended
 		if (moreEl) {
 			moreEl.setAttribute('aria-hidden', 'true');
+
 			if (!isMegaDropdownControl(moreEl)) {
 				moreListEl = document.createElement('ul');
 				moreListEl.setAttribute('data-o-hierarchical-nav-level', '2');
@@ -121,6 +127,7 @@ function ResponsiveNav(rootEl) {
 		rootDelegate.on('oSquishyList.change', contentFilterChangeHandler);
 
 		var bodyDelegate = new DomDelegate(document.body);
+
 		// Force a resize when it loads, in case it loads on a smaller screen
 		resize();
 
@@ -137,7 +144,6 @@ function ResponsiveNav(rootEl) {
 
 	this.resize = resize;
 	this.destroy = destroy;
-
 }
 
 // Initializes all nav elements in the page or whatever element is passed to it
@@ -150,6 +156,7 @@ ResponsiveNav.init = function(el) {
 
 	var navEls = el.querySelectorAll('[data-o-component="o-hierarchical-nav"]');
 	var responsiveNavs = [];
+
 	for (var c = 0, l = navEls.length; c < l; c++) {
 		if (!navEls[c].hasAttribute('data-o-hierarchical-nav--js')) {
 			// If it's a vertical nav, we don't need all the responsive methods
@@ -160,6 +167,7 @@ ResponsiveNav.init = function(el) {
 			}
 		}
 	}
+
 	return responsiveNavs;
 };
 

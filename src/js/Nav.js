@@ -1,14 +1,14 @@
 /*global require, module*/
 'use strict';
 
-var DomDelegate = require('ftdomdelegate'),
-	oDom = require('o-dom'),
-	utils = require('./utils');
+var DomDelegate = require('ftdomdelegate');
+var oDom = require('o-dom');
+var utils = require('./utils');
 
 function Nav(rootEl) {
 
-	var bodyDelegate = new DomDelegate(document.body),
-		rootDelegate = new DomDelegate(rootEl);
+	var bodyDelegate = new DomDelegate(document.body);
+	var rootDelegate = new DomDelegate(rootEl);
 
 	// Get sub-level element
 	function getChildListEl(el) {
@@ -39,16 +39,19 @@ function Nav(rootEl) {
 
 	// Check if a certain element is inside the root nav
 	function isElementInsideNav(el) {
-		var expandedLevel1El = rootEl.querySelector('[data-o-hierarchical-nav-level="1"] > [aria-expanded="true"]'),
-			expandedMegaDropdownEl,
-			allLevel1Els;
+		var expandedLevel1El = rootEl.querySelector('[data-o-hierarchical-nav-level="1"] > [aria-expanded="true"]');
+		var expandedMegaDropdownEl;
+		var allLevel1Els;
+
 		if (expandedLevel1El) {
 			expandedMegaDropdownEl = getMegaDropdownEl(expandedLevel1El);
 			if (expandedMegaDropdownEl && expandedMegaDropdownEl.contains(el)) {
 				return true;
 			}
 		}
+
 		allLevel1Els = rootEl.querySelectorAll('[data-o-hierarchical-nav-level="1"] > li');
+
 		for (var c = 0, l = allLevel1Els.length; c < l; c++) {
 			if (allLevel1Els[c].contains(el)) {
 				return true;
@@ -77,9 +80,11 @@ function Nav(rootEl) {
 		parentEl.classList.remove('o-hierarchical-nav--align-right');
 		parentEl.classList.remove('o-hierarchical-nav__outside-right');
 		parentEl.classList.remove('o-hierarchical-nav--left');
+
 		if (!childEl) {
 			return;
 		}
+
 		if (getLevel(parentEl) === 1) {
 			if (!level2ListFitsInWindow(childEl)) {
 				parentEl.classList.add('o-hierarchical-nav--align-right');
@@ -121,17 +126,20 @@ function Nav(rootEl) {
 	// Set an element as not expanded, and if it has children, do the same to them
 	function collapseItem(itemEl) {
 		itemEl.setAttribute('aria-expanded', 'false');
+
 		if (hasChildList(itemEl)) {
 			collapseAll(getChildListEl(itemEl).children);
 		}
+
 		hideEl(getMegaDropdownEl(itemEl));
 		dispatchCloseEvent(itemEl);
 	}
 
 	// Get same level items and collapse them
 	function collapseSiblingItems(itemEl) {
-		var listLevel = oDom.getClosestMatch(itemEl, 'ul').getAttribute('data-o-hierarchical-nav-level'),
-			listItemEls = rootEl.querySelectorAll('[data-o-hierarchical-nav-level="' + listLevel + '"] > li[aria-expanded="true"]');
+		var listLevel = oDom.getClosestMatch(itemEl, 'ul').getAttribute('data-o-hierarchical-nav-level');
+		var listItemEls = rootEl.querySelectorAll('[data-o-hierarchical-nav-level="' + listLevel + '"] > li[aria-expanded="true"]');
+
 		for (var c = 0, l = listItemEls.length; c < l; c++) {
 			collapseItem(listItemEls[c]);
 		}
@@ -159,8 +167,10 @@ function Nav(rootEl) {
 	// Handle clicks ourselved by expanding or collapsing selected element
 	function handleClick(ev) {
 		var itemEl = oDom.getClosestMatch(ev.target, 'li');
+
 		if (itemEl && isControlEl(itemEl)) {
 			ev.preventDefault();
+
 			if (!isExpanded(itemEl)) {
 				expandItem(itemEl);
 			} else {
@@ -171,8 +181,9 @@ function Nav(rootEl) {
 
 	// Position a level 3 nav
 	function positionLevel3s() {
-		var openLevel2El = rootEl.querySelector('[data-o-hierarchical-nav-level="2"] > [aria-expanded="true"]'),
-			openLevel3El = rootEl.querySelector('[data-o-hierarchical-nav-level="2"] > [aria-expanded="true"] > ul');
+		var openLevel2El = rootEl.querySelector('[data-o-hierarchical-nav-level="2"] > [aria-expanded="true"]');
+		var openLevel3El = rootEl.querySelector('[data-o-hierarchical-nav-level="2"] > [aria-expanded="true"] > ul');
+
 		if (openLevel2El && openLevel3El) {
 			positionChildListEl(openLevel2El, openLevel3El);
 		}
@@ -186,6 +197,7 @@ function Nav(rootEl) {
 	// Set all tabIndexes of a tags to 0
 	function setTabIndexes() {
 		var aEls = rootEl.querySelectorAll('li > a');
+
 		for (var c = 0, l = aEls.length; c < l; c++) {
 			if (!aEls[c].hasAttribute('href')) {
 				if (aEls[c].tabIndex === 0) { // Don't override tabIndex if something else has set it, but otherwise set it to zero to make it focusable.
@@ -210,6 +222,7 @@ function Nav(rootEl) {
 		} else if (!(rootEl instanceof HTMLElement)) {
 			rootEl = document.querySelector(rootEl);
 		}
+
 		rootEl.setAttribute('data-o-hierarchical-nav--js', '');
 		setTabIndexes();
 		setLayersContext();
@@ -219,6 +232,7 @@ function Nav(rootEl) {
 				handleClick(ev);
 			}
 		});
+
 		// Collapse all elements if the user clicks outside the nav
 		bodyDelegate.on('click', function(ev) {
 			if (!isElementInsideNav(ev.target)) {

@@ -14,9 +14,11 @@ function dispatchCustomEvent(el, name, data) {
 	if (document.createEvent && el.dispatchEvent) {
 		var event = document.createEvent('Event');
 		event.initEvent(name, true, true);
+
 		if (data) {
 			event.detail = data;
 		}
+
 		el.dispatchEvent(event);
 	}
 }
