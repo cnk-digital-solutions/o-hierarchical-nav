@@ -57,12 +57,8 @@
 
 	// Show a right arrow when sub-level nav will be displayed to the right
 	.o-hierarchical-nav__parent.o-hierarchical-nav__outside-right[aria-expanded="true"] {
-		.o-hierarchical-nav__parent__right-arrow {
-			display: inline-block;
-		}
-
-		.o-hierarchical-nav__parent__down-arrow {
-			display: none;
+		> a i {
+			@extend %o-ft-icons-icon--arrow-right;
 		}
 	}
 

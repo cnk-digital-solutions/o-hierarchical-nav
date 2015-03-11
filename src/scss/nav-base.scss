@@ -54,17 +54,21 @@
 [aria-controls] > a,
 .o-hierarchical-nav__parent > a {
 	i {
-		@include oFtIconsBaseIconStyles();
-	}
-
-	.o-hierarchical-nav__parent__down-arrow {
 		@extend %o-ft-icons-icon--arrow-down;
+		@include oFtIconsBaseIconStyles();
 		font-size: 8px;
+
+		// Ensure passing from normal to expanded state
+		// doesn't change the width of the menu
+		box-sizing: border-box;
+		width: 16px;
+		text-align: right;
+		padding-right: 6px;
+		line-height: 16px;
 	}
 
-	.o-hierarchical-nav__parent__right-arrow {
-		@extend %o-ft-icons-icon--arrow-right;
-		font-size: 9px;
+	// Deprecated: two <i> elements, hide the second one
+	i + i {
 		display: none;
 	}
 }
