@@ -11,7 +11,7 @@ Tested and working on:
 |   Chrome   |        35+         |       35+       |
 |   Firefox  |        30+         |       30+       |
 |   Safari   |        7+          |       7+        |
-|   IE       |        8+          |       7+        |
+|   IE       |        8+          |       8+        |
 
 Known issues:
 
@@ -19,7 +19,7 @@ Known issues:
 
 ## Navigation
 
-All navigation options have the same general markup structure that you can see in [main.mustache](https://github.com/Financial-Times/o-hierarchical-nav/blob/master/main.mustache)
+All navigation options have the same general markup structure that you can see in [main.mustache](https://github.com/Financial-Times/o-hierarchical-nav/blob/master/main.mustache).
 
 Each _navigation item_ can be either:
 
