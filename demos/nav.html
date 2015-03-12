@@ -7,7 +7,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
 	<title>o-hierarchical-nav: nav demo</title>
 	<meta name="viewport" content="initial-scale=1.0, width=device-width" />
-	<script src="//polyfill.webservices.ft.com/v1/polyfill.min.js"></script>
+	<script src="//polyfill.webservices.ft.com/v1/polyfill.min.js?features=modernizr:classlist,modernizr:createevent,modernizr:datauri,modernizr:cssgradients,modernizr:mediaqueries,modernizr:csstransitions,default"></script>
 	<style>body { margin: 0; } .demo-js .o--if-nojs { display: none; }</style>
 	<script>(function(d) { d.className = d.className + ' demo-js'; })(document.documentElement);</script>
 	<link rel="stylesheet" href="/bundles/css?modules=o-hierarchical-nav:/demos/src/scss/demo.scss,o-fonts@^1.4.0" />
@@ -19,10 +19,10 @@
     <ul data-o-hierarchical-nav-level="1">
         <li aria-selected="true"><a>Item 1</a></li>
         <li><a>Item 2</a></li>
-        <li class="o-hierarchical-nav__parent"><a>Item 3 (parent) <i class="o-hierarchical-nav__parent__down-arrow"></i></a>
+        <li class="o-hierarchical-nav__parent"><a>Item 3 (parent) <i></i></a>
             <ul data-o-hierarchical-nav-level="2">
                 <li><a>Item 3.1</a></li>
-                <li class="o-hierarchical-nav__parent"><a>Item 3.2 (parent) <i class="o-hierarchical-nav__parent__down-arrow"></i><i class="o-hierarchical-nav__parent__right-arrow"></i></a>
+                <li class="o-hierarchical-nav__parent"><a>Item 3.2 (parent) <i></i></a>
                     <ul data-o-hierarchical-nav-level="3">
                         <li><a>Item 3.2.1</a></li>
                         <li><a>Item 3.2.2</a></li>
@@ -31,7 +31,7 @@
                     </ul>
                 </li>
                 <li><a>Item 3.3</a></li>
-                <li class="o-hierarchical-nav__parent"><a>Item 3.4 (parent) <i class="o-hierarchical-nav__parent__down-arrow"></i><i class="o-hierarchical-nav__parent__right-arrow"></i></a>
+                <li class="o-hierarchical-nav__parent"><a>Item 3.4 (parent) <i></i></a>
                     <ul data-o-hierarchical-nav-level="3">
                         <li><a>Item 3.4.1</a></li>
                         <li><a>Item 3.4.2</a></li>
@@ -43,10 +43,10 @@
             </ul>
         </li>
         <li><a>Item 4</a></li>
-        <li class="o-hierarchical-nav__parent"><a>Item 5 (parent) <i class="o-hierarchical-nav__parent__down-arrow"></i></a>
+        <li class="o-hierarchical-nav__parent"><a>Item 5 (parent) <i></i></a>
             <ul data-o-hierarchical-nav-level="2">
                 <li><a>Item 5.1</a></li>
-                <li class="o-hierarchical-nav__parent"><a>Item 5.2 (parent) <i class="o-hierarchical-nav__parent__down-arrow"></i><i class="o-hierarchical-nav__parent__right-arrow"></i></a>
+                <li class="o-hierarchical-nav__parent"><a>Item 5.2 (parent) <i></i></a>
                     <ul data-o-hierarchical-nav-level="3">
                         <li><a>Item 5.2.1</a></li>
                         <li><a>Item 5.2.2</a></li>
@@ -55,7 +55,7 @@
                     </ul>
                 </li>
                 <li><a>Item 5.3</a></li>
-                <li class="o-hierarchical-nav__parent"><a>Item 5.4 (parent) <i class="o-hierarchical-nav__parent__down-arrow"></i><i class="o-hierarchical-nav__parent__right-arrow"></i></a>
+                <li class="o-hierarchical-nav__parent"><a>Item 5.4 (parent) <i></i></a>
                     <ul data-o-hierarchical-nav-level="3">
                         <li><a>Item 5.2.1</a></li>
                         <li><a>Item 5.2.2</a></li>
@@ -75,10 +75,10 @@
     <ul data-o-hierarchical-nav-level="1">
         <li aria-selected="true"><a>Item 1</a></li>
         <li><a>Item 2</a></li>
-        <li class="o-hierarchical-nav__parent"><a>Item 3 (parent) <i class="o-hierarchical-nav__parent__down-arrow"></i></a>
+        <li class="o-hierarchical-nav__parent"><a>Item 3 (parent) <i></i></a>
             <ul data-o-hierarchical-nav-level="2">
                 <li><a>Item 3.1</a></li>
-                <li class="o-hierarchical-nav__parent"><a>Item 3.2 (parent) <i class="o-hierarchical-nav__parent__down-arrow"></i></a>
+                <li class="o-hierarchical-nav__parent"><a>Item 3.2 (parent) <i></i></a>
                     <ul data-o-hierarchical-nav-level="3">
                         <li><a>Item 3.2.1</a></li>
                         <li><a>Item 3.2.2</a></li>
@@ -87,7 +87,7 @@
                     </ul>
                 </li>
                 <li><a>Item 3.3</a></li>
-                <li class="o-hierarchical-nav__parent"><a>Parent Item 3.4 <i class="o-hierarchical-nav__parent__down-arrow"></i></a>
+                <li class="o-hierarchical-nav__parent"><a>Parent Item 3.4 <i></i></a>
                     <ul data-o-hierarchical-nav-level="3">
                         <li><a>Item 3.4.1</a></li>
                         <li><a>Item 3.4.2</a></li>
@@ -99,10 +99,10 @@
             </ul>
         </li>
         <li><a>Item 4</a></li>
-        <li class="o-hierarchical-nav__parent"><a>Item 5 (parent) <i class="o-hierarchical-nav__parent__down-arrow"></i></a>
+        <li class="o-hierarchical-nav__parent"><a>Item 5 (parent) <i></i></a>
             <ul data-o-hierarchical-nav-level="2">
                 <li><a>Item 5.1</a></li>
-                <li class="o-hierarchical-nav__parent"><a>Item 5.2 (parent) <i class="o-hierarchical-nav__parent__down-arrow"></i></a>
+                <li class="o-hierarchical-nav__parent"><a>Item 5.2 (parent) <i></i></a>
                     <ul data-o-hierarchical-nav-level="3">
                         <li><a>Item 5.2.1</a></li>
                         <li><a>Item 5.2.2</a></li>
@@ -111,7 +111,7 @@
                     </ul>
                 </li>
                 <li><a>Item 5.3</a></li>
-                <li class="o-hierarchical-nav__parent"><a>Parent Item 5.4 (parent) <i class="o-hierarchical-nav__parent__down-arrow"></i></a>
+                <li class="o-hierarchical-nav__parent"><a>Parent Item 5.4 (parent) <i></i></a>
                     <ul data-o-hierarchical-nav-level="3">
                         <li><a>Item 5.2.1</a></li>
                         <li><a>Item 5.2.2</a></li>
@@ -124,6 +124,7 @@
         </li>
     </ul>
 </nav>
+
 <script src="/bundles/js?modules=o-hierarchical-nav:/demos/src/nav.js,o-fonts@^1.4.0"></script>
 <script src="//registry.origami.ft.com/embedapi?autoload=resize"></script>
 </body>
