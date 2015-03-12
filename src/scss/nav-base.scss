@@ -51,7 +51,7 @@
 }
 
 // Styles for parents of other navs or controlled elements
-[aria-controls] > a,
+.o-hierarchical-nav [aria-controls] > a,
 .o-hierarchical-nav__parent > a {
 	i {
 		@extend %o-ft-icons-icon--arrow-down;
