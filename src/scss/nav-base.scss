@@ -19,7 +19,7 @@
 		color: #ffffff;
 
 		// Prevent accidental double clicks and long taps from selecting text
-		// scss-lint:disable VendorPrefixes
+		// scss-lint:disable VendorPrefixes VendorPrefix
 		-moz-user-select: none;
 		-webkit-user-select: none;
 		-ms-user-select: none;
