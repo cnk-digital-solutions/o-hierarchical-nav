@@ -8,7 +8,7 @@
   "dependencies": {
     "o-colors": "^2.2.20",
     "o-ft-icons": "^2.2.1",
-    "o-hoverable": ">0.1.1 <=0.3.0",
+    "o-hoverable": ">=0.1.1 <2",
     "o-viewport": "^1.0.0",
     "o-dom": ">=0.4.0 <2",
     "ftdomdelegate": ">=1.0.0 <3",
