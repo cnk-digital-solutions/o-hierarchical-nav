@@ -6,7 +6,7 @@
   ],
   "ignore": [],
   "dependencies": {
-    "o-colors": ">=2.2.20 <4",
+    "o-colors": ">=2.5.0 <4",
     "o-ft-icons": "^2.2.1",
     "o-hoverable": ">=0.1.1 <2",
     "o-viewport": "^1.0.0",
