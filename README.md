@@ -105,7 +105,15 @@ If there's a chance that all nav items will be hidden and added to the More list
 
 ## Vertical hierarchical nav
 
-To make a nav work in a vertical layout, add `data-o-hierarchical-nav-orientiation="vertical"` to the `<nav>`.
+By default, the nav is horizontal. To make it vertical, use the CSS modifier class `o-hierarchical-nav--orientation-vertical`:
+
+```html
+<nav class="o-hierarchical-nav o-hierarchical-nav--orientation-vertical" data-o-component="o-hierarchical-nav">
+	<ul data-o-hierarchical-nav-level="1">
+	…
+	</ul>
+</nav>
+```
 
 ## Arrows
 
