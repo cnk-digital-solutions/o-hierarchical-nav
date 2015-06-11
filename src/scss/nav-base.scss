@@ -46,6 +46,10 @@
 	}
 }
 
+.o-hierarchical-nav--orientation-vertical {
+	@include oHierarchicalNavVerticalTheme();
+}
+
 [data-o-hierarchical-nav-level='1'] > a {
 	text-transform: uppercase;
 }
