@@ -149,3 +149,11 @@ document.addEventListener("DOMContentLoaded", function() {
 ```
 
 All this really does is run the `oHierarchicalNav.init()` function, so if you don't want this module to initialise with all the others, you can run this when it suits you best.
+
+----
+
+## License
+
+Copyright (c) 2015 Financial Times Ltd. All rights reserved.
+
+This software is published under the [MIT licence](http://opensource.org/licenses/MIT).
