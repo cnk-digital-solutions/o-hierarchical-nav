@@ -17,7 +17,7 @@ function ResponsiveNav(rootEl) {
 
 	// Check if element is a controller of another DOM element
 	function isMegaDropdownControl(el) {
-		return el.hasAttribute('aria-controls');
+		return (el && el.hasAttribute('aria-controls'));
 	}
 
 	// On resize, apply o-squishy-list, and, if it has a sub-level dom, populate more list
@@ -34,7 +34,9 @@ function ResponsiveNav(rootEl) {
 
 	// Empty the more list
 	function emptyMoreList() {
-		moreListEl.innerHTML = '';
+		if (moreListEl) {
+			moreListEl.innerHTML = '';
+		}
 	}
 
 	// Get the information from the element and create a new li tag with the element's text to append more list
