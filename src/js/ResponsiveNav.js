@@ -34,7 +34,9 @@ function ResponsiveNav(rootEl) {
 
 	// Empty the more list
 	function emptyMoreList() {
-		moreListEl.innerHTML = '';
+		if (moreListEl) {
+			moreListEl.innerHTML = '';
+		}
 	}
 
 	// Get the information from the element and create a new li tag with the element's text to append more list
