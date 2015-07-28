@@ -107,6 +107,7 @@ If there is a structure required for the styling of nav components (i.e. other e
 
 ```html
 <li data-o-hierarchical-nav--is-cloneable><a><div>An item to clone</div><img src="" alt="icon"></a></li>
+```
 
 ## Vertical hierarchical nav
 
