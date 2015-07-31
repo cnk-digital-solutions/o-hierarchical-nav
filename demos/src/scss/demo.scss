@@ -39,3 +39,31 @@ body {
 .demo--horizontal-theme {
 	@include oHierarchicalNavHorizontalTheme;
 }
+
+.signin__nav {
+	text-align: center;
+	li {
+		box-sizing: border-box;
+		min-width: 200px;
+		margin: 10px;
+		input, button {
+			border: none;
+			border-radius: 5px;
+			box-sizing: border-box;
+			font-size: 16px;
+			padding: 10px;
+			width: 100%;
+		}
+		button {
+			background: #c00;
+			color: #fff;
+		}
+		[data-o-hierarchical-nav-level="2"] {
+			border-radius: 0 0 10px 10px;
+			margin-top: 10px;
+			li {
+				border: none !important;
+			}
+		}
+	}
+}
