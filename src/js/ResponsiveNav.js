@@ -77,7 +77,7 @@ function ResponsiveNav(rootEl) {
 	}
 
 	function prefixIds(el) {
-		var newId, child;
+		var child;
 		if (el.hasChildNodes()) {
 			var children = el.childNodes;
 			for (var i = 0, l = children.length; i < l; i++) {
