@@ -14,6 +14,8 @@ function ResponsiveNav(rootEl) {
 	var contentFilter;
 	var moreEl;
 	var moreListEl;
+	var clonedIdPrefix = 'o-hierarchical-nav__cloned-id-';
+	var prefixedNodes = [];
 
 	// Check if element is a controller of another DOM element
 	function isMegaDropdownControl(el) {
@@ -61,12 +63,40 @@ function ResponsiveNav(rootEl) {
 		cloneEl.removeAttribute('data-priority');
 		cloneEl.removeAttribute('aria-hidden');
 		cloneEl.removeAttribute('data-o-hierarchical-nav--is-cloneable');
+		// recurse through children and amend any id values to maintain uniqueness
+		prefixIds(el);
 		moreListEl.appendChild(cloneEl);
+	}
+
+	function resetIds() {
+		var nextNode;
+		while (prefixedNodes.length > 0) {
+			nextNode = prefixedNodes.pop();
+			nextNode.setAttribute('id', nextNode.getAttribute('id').replace(clonedIdPrefix, ''));
+		}
+	}
+
+	function prefixIds(el) {
+		var newId, child;
+		if (el.hasChildNodes()) {
+			var children = el.childNodes;
+			for (var i = 0, l = children.length; i < l; i++) {
+				child = children[i];
+				if (child instanceof HTMLElement) {
+					if (child.hasAttribute('id')) {
+						prefixedNodes.push(child); // store to make the cleanup more performant
+						child.setAttribute('id', clonedIdPrefix + child.getAttribute('id'));
+					}
+					prefixIds(child);
+				}
+			}
+		}
 	}
 
 	// For every hidden item, add it to the more list
 	function populateMoreList(hiddenEls) {
 		emptyMoreList();
+		resetIds();
 
 		for (var c = 0, l = hiddenEls.length; c < l; c++) {
 			var aEl = hiddenEls[c].querySelector('a');
@@ -151,6 +181,7 @@ function ResponsiveNav(rootEl) {
 	}
 
 	function destroy() {
+		prefixedNodes = [];
 		rootDelegate.destroy();
 		rootEl.removeAttribute('data-o-hierarchical-nav--js');
 	}
