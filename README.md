@@ -108,7 +108,7 @@ If there's a chance that all nav items will be hidden and added to the More list
 If there is a structure required for the styling of nav components (i.e. other elements are required for icon display) or elements that are not links but should reduce to a sub-level when screen space does not allow then you can add a 'data-o-hierarchical-nav-is-cloneable' attribute and the element will be deeply cloned rather than a new anchor tag with the text content copied.
 
 ```html
-<li data-o-hierarchical-nav-is-cloneable><div><span>An item to clone</span><img src="" alt="icon"></div></li>
+<li data-o-hierarchical-nav-is-cloneable><a><span>An item to clone</span><img src="" alt="icon"></a></li>
 ```
 
 ## Vertical hierarchical nav
