@@ -62,7 +62,7 @@ function ResponsiveNav(rootEl) {
 		// remove the attributes that are only applicable to higher level
 		cloneEl.removeAttribute('data-priority');
 		cloneEl.removeAttribute('aria-hidden');
-		cloneEl.removeAttribute('data-o-hierarchical-nav--is-cloneable');
+		cloneEl.removeAttribute('data-o-hierarchical-nav-is-cloneable');
 		// recurse through children and amend any id values to maintain uniqueness
 		prefixIds(el);
 		moreListEl.appendChild(cloneEl);
@@ -102,7 +102,7 @@ function ResponsiveNav(rootEl) {
 			var aEl = hiddenEls[c].querySelector('a');
 			var ulEl = hiddenEls[c].querySelector('ul');
 
-			if (hiddenEls[c].hasAttribute('data-o-hierarchical-nav--is-cloneable')) {
+			if (hiddenEls[c].hasAttribute('data-o-hierarchical-nav-is-cloneable')) {
 				cloneItemToMoreList(hiddenEls[c]);
 			} else {
 				var aText = (typeof aEl.textContent !== 'undefined') ? aEl.textContent : aEl.innerText;
