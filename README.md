@@ -25,6 +25,7 @@ Each _navigation item_ can be either:
 
 * __Plain text__: must still be wrapped in `<a>` tag, e.g. `<a>World</a>`
 * __Linked text__: e.g. `<a href="/world">World</a>`
+* __Sub Component__: must be wrapped in `<li>` with a `data-o-hierarchical-nav-is-cloneable` attribute, e.g `<li data-o-hierarchical-nav-is-cloneable>...</li>`
 
 …and can have one of the following behaviours:
 
@@ -102,11 +103,12 @@ If there's a chance that all nav items will be hidden and added to the More list
 ```html
 <li data-more class="o-hierarchical-nav__parent"><a><span class="nav__more--if-some">More</span><span class="nav__more--if-all">Menu</span></a></li>
 ```
+#### Sub-Components
 
 If there is a structure required for the styling of nav components (i.e. other elements are required for icon display) or elements that are not links but should reduce to a sub-level when screen space does not allow then you can add a 'data-o-hierarchical-nav-is-cloneable' attribute and the element will be deeply cloned rather than a new anchor tag with the text content copied.
 
 ```html
-<li data-o-hierarchical-nav-is-cloneable><a><div>An item to clone</div><img src="" alt="icon"></a></li>
+<li data-o-hierarchical-nav-is-cloneable><div><span>An item to clone</span><img src="" alt="icon"></div></li>
 ```
 
 ## Vertical hierarchical nav

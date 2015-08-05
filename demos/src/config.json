@@ -21,7 +21,8 @@
         },
         {
             "name": "sub-component",
-            "template": "demos/src/sub-component.mustache"
+            "template": "demos/src/sub-component.mustache",
+            "sass": "demos/src/scss/sub-component.scss"
         }
     ]
 }
