@@ -78,7 +78,6 @@ function ResponsiveNav(rootEl) {
 
 	function prefixIds(el) {
 		// id's are prefixed to ensure that any id based functionality uses the visible element
-		// 
 		// for example a 'label' tag with a 'for' attribute will not find the correct input it
 		// relates to as it uses the first matching id in the document
 		var child;
