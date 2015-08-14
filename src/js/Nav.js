@@ -51,7 +51,7 @@ function Nav(rootEl) {
 
 		allLevel1Els = rootEl.querySelectorAll('[data-o-hierarchical-nav-level="1"] > li');
 
-		for (const c = 0, l = allLevel1Els.length; c < l; c++) {
+		for (let c = 0, l = allLevel1Els.length; c < l; c++) {
 			if (allLevel1Els[c].contains(el)) {
 				return true;
 			}
@@ -144,7 +144,7 @@ function Nav(rootEl) {
 		const listLevel = oDom.getClosestMatch(itemEl, 'ul').getAttribute('data-o-hierarchical-nav-level');
 		const listItemEls = rootEl.querySelectorAll('[data-o-hierarchical-nav-level="' + listLevel + '"] > li[aria-expanded="true"]');
 
-		for (const c = 0, l = listItemEls.length; c < l; c++) {
+		for (let c = 0, l = listItemEls.length; c < l; c++) {
 			collapseItem(listItemEls[c]);
 		}
 	}
@@ -202,7 +202,7 @@ function Nav(rootEl) {
 	function setTabIndexes() {
 		const aEls = rootEl.querySelectorAll('li > a');
 
-		for (const c = 0, l = aEls.length; c < l; c++) {
+		for (let c = 0, l = aEls.length; c < l; c++) {
 			if (!aEls[c].hasAttribute('href')) {
 				if (aEls[c].tabIndex === 0) { // Don't override tabIndex if something else has set it, but otherwise set it to zero to make it focusable.
 					aEls[c].tabIndex = 0;

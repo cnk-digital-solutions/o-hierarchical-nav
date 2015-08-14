@@ -82,7 +82,7 @@ function ResponsiveNav(rootEl) {
 		let child;
 		if (el.hasChildNodes()) {
 			const children = el.childNodes;
-			for (const i = 0, l = children.length; i < l; i++) {
+			for (let i = 0, l = children.length; i < l; i++) {
 				child = children[i];
 				if (child instanceof HTMLElement) {
 					if (child.hasAttribute('id')) {
@@ -100,7 +100,7 @@ function ResponsiveNav(rootEl) {
 		emptyMoreList();
 		resetIds();
 
-		for (const c = 0, l = hiddenEls.length; c < l; c++) {
+		for (let c = 0, l = hiddenEls.length; c < l; c++) {
 			const aEl = hiddenEls[c].querySelector('a');
 			const ulEl = hiddenEls[c].querySelector('ul');
 
@@ -205,7 +205,7 @@ ResponsiveNav.init = function(el) {
 	const navEls = el.querySelectorAll('[data-o-component="o-hierarchical-nav"]');
 	const responsiveNavs = [];
 
-	for (const c = 0, l = navEls.length; c < l; c++) {
+	for (let c = 0, l = navEls.length; c < l; c++) {
 		if (!navEls[c].hasAttribute('data-o-hierarchical-nav--js')) {
 			// If it's a vertical nav, we don't need all the responsive methods
 			if (navEls[c].getAttribute('data-o-hierarchical-nav-orientiation') === 'vertical') {
