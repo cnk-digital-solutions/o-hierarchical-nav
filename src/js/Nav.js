@@ -1,14 +1,13 @@
 /*global require, module*/
-'use strict';
 
-var DomDelegate = require('ftdomdelegate');
-var oDom = require('o-dom');
-var utils = require('./utils');
+const DomDelegate = require('ftdomdelegate');
+const oDom = require('o-dom');
+const utils = require('./utils');
 
 function Nav(rootEl) {
 
-	var bodyDelegate = new DomDelegate(document.body);
-	var rootDelegate = new DomDelegate(rootEl);
+	const bodyDelegate = new DomDelegate(document.body);
+	const rootDelegate = new DomDelegate(rootEl);
 
 	// Get sub-level element
 	function getChildListEl(el) {
@@ -39,9 +38,9 @@ function Nav(rootEl) {
 
 	// Check if a certain element is inside the root nav
 	function isElementInsideNav(el) {
-		var expandedLevel1El = rootEl.querySelector('[data-o-hierarchical-nav-level="1"] > [aria-expanded="true"]');
-		var expandedMegaDropdownEl;
-		var allLevel1Els;
+		const expandedLevel1El = rootEl.querySelector('[data-o-hierarchical-nav-level="1"] > [aria-expanded="true"]');
+		let expandedMegaDropdownEl;
+		let allLevel1Els;
 
 		if (expandedLevel1El) {
 			expandedMegaDropdownEl = getMegaDropdownEl(expandedLevel1El);
@@ -52,7 +51,7 @@ function Nav(rootEl) {
 
 		allLevel1Els = rootEl.querySelectorAll('[data-o-hierarchical-nav-level="1"] > li');
 
-		for (var c = 0, l = allLevel1Els.length; c < l; c++) {
+		for (const c = 0, l = allLevel1Els.length; c < l; c++) {
 			if (allLevel1Els[c].contains(el)) {
 				return true;
 			}
@@ -142,10 +141,10 @@ function Nav(rootEl) {
 
 	// Get same level items and collapse them
 	function collapseSiblingItems(itemEl) {
-		var listLevel = oDom.getClosestMatch(itemEl, 'ul').getAttribute('data-o-hierarchical-nav-level');
-		var listItemEls = rootEl.querySelectorAll('[data-o-hierarchical-nav-level="' + listLevel + '"] > li[aria-expanded="true"]');
+		const listLevel = oDom.getClosestMatch(itemEl, 'ul').getAttribute('data-o-hierarchical-nav-level');
+		const listItemEls = rootEl.querySelectorAll('[data-o-hierarchical-nav-level="' + listLevel + '"] > li[aria-expanded="true"]');
 
-		for (var c = 0, l = listItemEls.length; c < l; c++) {
+		for (const c = 0, l = listItemEls.length; c < l; c++) {
 			collapseItem(listItemEls[c]);
 		}
 	}
@@ -171,7 +170,7 @@ function Nav(rootEl) {
 
 	// Handle clicks ourselved by expanding or collapsing selected element
 	function handleClick(ev) {
-		var itemEl = oDom.getClosestMatch(ev.target, 'li');
+		const itemEl = oDom.getClosestMatch(ev.target, 'li');
 
 		if (itemEl && isControlEl(itemEl)) {
 			ev.preventDefault();
@@ -186,8 +185,8 @@ function Nav(rootEl) {
 
 	// Position a level 3 nav
 	function positionLevel3s() {
-		var openLevel2El = rootEl.querySelector('[data-o-hierarchical-nav-level="2"] > [aria-expanded="true"]');
-		var openLevel3El = rootEl.querySelector('[data-o-hierarchical-nav-level="2"] > [aria-expanded="true"] > ul');
+		const openLevel2El = rootEl.querySelector('[data-o-hierarchical-nav-level="2"] > [aria-expanded="true"]');
+		const openLevel3El = rootEl.querySelector('[data-o-hierarchical-nav-level="2"] > [aria-expanded="true"] > ul');
 
 		if (openLevel2El && openLevel3El) {
 			positionChildListEl(openLevel2El, openLevel3El);
@@ -201,9 +200,9 @@ function Nav(rootEl) {
 
 	// Set all tabIndexes of a tags to 0
 	function setTabIndexes() {
-		var aEls = rootEl.querySelectorAll('li > a');
+		const aEls = rootEl.querySelectorAll('li > a');
 
-		for (var c = 0, l = aEls.length; c < l; c++) {
+		for (const c = 0, l = aEls.length; c < l; c++) {
 			if (!aEls[c].hasAttribute('href')) {
 				if (aEls[c].tabIndex === 0) { // Don't override tabIndex if something else has set it, but otherwise set it to zero to make it focusable.
 					aEls[c].tabIndex = 0;
