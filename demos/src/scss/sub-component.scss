@@ -27,6 +27,8 @@
 		border-radius: 0 0 10px 10px;
 		margin-top: 10px;
 		text-align: right;
+
+		//scss-lint:disable SelectorDepth
 		li {
 			border-top: 0;
 		}
