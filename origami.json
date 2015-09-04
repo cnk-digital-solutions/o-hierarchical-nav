@@ -2,7 +2,7 @@
     "description": "Responsive hierarchical nav",
     "origamiType": "module",
     "origamiVersion": 1,
-    "support": "alberto.elias@ft.com",
+    "support": "https://github.com/Financial-Times/o-hierarchical-nav/issues",
     "supportStatus": "active",
     "browserFeatures": {
         "required": [
