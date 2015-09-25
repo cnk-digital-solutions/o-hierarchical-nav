@@ -2,7 +2,6 @@
     "options": {
         "sass": "demos/src/scss/demo.scss",
         "js": "demos/src/responsive-nav.js",
-        "bodyClasses": "o-hoverable-on",
         "dependencies": ["o-fonts@^1.4.0"]
     },
     "demos": [
