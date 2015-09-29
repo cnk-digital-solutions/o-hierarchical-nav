@@ -2,7 +2,6 @@
 
 // Helper function that converts a list of elements into an array
 function nodeListToArray(nl) {
-	'use strict';
 	return [].map.call(nl, function(element) {
 		return element;
 	});
@@ -10,9 +9,8 @@ function nodeListToArray(nl) {
 
 // Helper function to dispatch events
 function dispatchCustomEvent(el, name, data) {
-	'use strict';
 	if (document.createEvent && el.dispatchEvent) {
-		var event = document.createEvent('Event');
+		const event = document.createEvent('Event');
 		event.initEvent(name, true, true);
 
 		if (data) {
@@ -24,11 +22,9 @@ function dispatchCustomEvent(el, name, data) {
 }
 
 function isIE8() {
-	'use strict';
-
-	var b = document.createElement('B');
-	var docElem = document.documentElement;
-	var isIE;
+	const b = document.createElement('B');
+	const docElem = document.documentElement;
+	let isIE;
 
 	b.innerHTML = '<!--[if IE 8]><b id="ie8test"></b><![endif]-->';
 	docElem.appendChild(b);

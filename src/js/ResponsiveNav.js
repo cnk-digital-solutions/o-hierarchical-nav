@@ -1,21 +1,20 @@
 /*global require,module,document,HTMLElement*/
-'use strict';
 
-var SquishyList = require('o-squishy-list');
-var DomDelegate = require('ftdomdelegate');
-var oViewport = require('o-viewport');
-var Nav = require('./Nav');
+const SquishyList = require('o-squishy-list');
+const DomDelegate = require('ftdomdelegate');
+const oViewport = require('o-viewport');
+const Nav = require('./Nav');
 
 function ResponsiveNav(rootEl) {
 
-	var rootDelegate;
-	var nav;
-	var contentFilterEl;
-	var contentFilter;
-	var moreEl;
-	var moreListEl;
-	var clonedIdPrefix = 'o-hierarchical-nav__cloned-id-';
-	var prefixedNodes = [];
+	let rootDelegate;
+	let nav;
+	let contentFilterEl;
+	let contentFilter;
+	let moreEl;
+	let moreListEl;
+	const clonedIdPrefix = 'o-hierarchical-nav__cloned-id-';
+	let prefixedNodes = [];
 
 	// Check if element is a controller of another DOM element
 	function isMegaDropdownControl(el) {
@@ -43,8 +42,8 @@ function ResponsiveNav(rootEl) {
 
 	// Get the information from the element and create a new li tag with the element's text to append more list
 	function addItemToMoreList(text, href) {
-		var itemEl = document.createElement('li');
-		var aEl = document.createElement('a');
+		const itemEl = document.createElement('li');
+		const aEl = document.createElement('a');
 
 		if (typeof aEl.textContent !== 'undefined') {
 			aEl.textContent = text;
@@ -58,7 +57,7 @@ function ResponsiveNav(rootEl) {
 	}
 
 	function cloneItemToMoreList(el) {
-		var cloneEl = el.cloneNode(true);
+		const cloneEl = el.cloneNode(true);
 		// remove the attributes that are only applicable to higher level
 		cloneEl.removeAttribute('data-priority');
 		cloneEl.removeAttribute('aria-hidden');
@@ -69,7 +68,7 @@ function ResponsiveNav(rootEl) {
 	}
 
 	function resetIds() {
-		var nextNode;
+		let nextNode;
 		while (prefixedNodes.length > 0) {
 			nextNode = prefixedNodes.pop();
 			nextNode.setAttribute('id', nextNode.getAttribute('id').replace(clonedIdPrefix, ''));
@@ -80,10 +79,10 @@ function ResponsiveNav(rootEl) {
 		// id's are prefixed to ensure that any id based functionality uses the visible element
 		// for example a 'label' tag with a 'for' attribute will not find the correct input it
 		// relates to as it uses the first matching id in the document
-		var child;
+		let child;
 		if (el.hasChildNodes()) {
-			var children = el.childNodes;
-			for (var i = 0, l = children.length; i < l; i++) {
+			const children = el.childNodes;
+			for (let i = 0, l = children.length; i < l; i++) {
 				child = children[i];
 				if (child instanceof HTMLElement) {
 					if (child.hasAttribute('id')) {
@@ -101,14 +100,14 @@ function ResponsiveNav(rootEl) {
 		emptyMoreList();
 		resetIds();
 
-		for (var c = 0, l = hiddenEls.length; c < l; c++) {
-			var aEl = hiddenEls[c].querySelector('a');
-			var ulEl = hiddenEls[c].querySelector('ul');
+		for (let c = 0, l = hiddenEls.length; c < l; c++) {
+			const aEl = hiddenEls[c].querySelector('a');
+			const ulEl = hiddenEls[c].querySelector('ul');
 
 			if (hiddenEls[c].hasAttribute('data-o-hierarchical-nav-is-cloneable')) {
 				cloneItemToMoreList(hiddenEls[c]);
 			} else {
-				var aText = (typeof aEl.textContent !== 'undefined') ? aEl.textContent : aEl.innerText;
+				const aText = (typeof aEl.textContent !== 'undefined') ? aEl.textContent : aEl.innerText;
 				addItemToMoreList(aText, aEl.href, ulEl);
 			}
 		}
@@ -174,7 +173,7 @@ function ResponsiveNav(rootEl) {
 
 		rootDelegate.on('oSquishyList.change', contentFilterChangeHandler);
 
-		var bodyDelegate = new DomDelegate(document.body);
+		const bodyDelegate = new DomDelegate(document.body);
 
 		// Force a resize when it loads, in case it loads on a smaller screen
 		resize();
@@ -203,10 +202,10 @@ ResponsiveNav.init = function(el) {
 		el = document.querySelector(el);
 	}
 
-	var navEls = el.querySelectorAll('[data-o-component="o-hierarchical-nav"]');
-	var responsiveNavs = [];
+	const navEls = el.querySelectorAll('[data-o-component="o-hierarchical-nav"]');
+	const responsiveNavs = [];
 
-	for (var c = 0, l = navEls.length; c < l; c++) {
+	for (let c = 0, l = navEls.length; c < l; c++) {
 		if (!navEls[c].hasAttribute('data-o-hierarchical-nav--js')) {
 			// If it's a vertical nav, we don't need all the responsive methods
 			if (navEls[c].getAttribute('data-o-hierarchical-nav-orientiation') === 'vertical') {
