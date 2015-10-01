@@ -8,11 +8,11 @@
   "dependencies": {
     "o-colors": ">=2.5.0 <4",
     "o-ft-icons": "^2.2.1",
-    "o-hoverable": ">=0.1.1 <2",
-    "o-viewport": "^1.0.0",
-    "o-dom": ">=0.4.0 <2",
+    "o-hoverable": ">=0.1.1 <4",
+    "o-viewport": ">=1.0.0 <3",
+    "o-dom": ">=0.4.0 <3",
     "ftdomdelegate": ">=1.0.0 <3",
-    "o-squishy-list": "^1.0.0",
-    "o-layers": ">=0.2.0 <2"
+    "o-squishy-list": ">=1.0.0 <3",
+    "o-layers": ">=0.2.0 <3"
   }
 }
