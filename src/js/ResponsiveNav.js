@@ -156,6 +156,8 @@ function ResponsiveNav(rootEl) {
 		contentFilterEl = rootEl.querySelector('ul');
 		moreEl = rootEl.querySelector('[data-more]');
 
+		rootDelegate.on('oSquishyList.change', contentFilterChangeHandler);
+
 		if (contentFilterEl) {
 			contentFilter = new SquishyList(contentFilterEl, { filterOnResize: false });
 		}
@@ -171,8 +173,6 @@ function ResponsiveNav(rootEl) {
 				rootDelegate.on('oLayers.new', navExpandHandler);
 			}
 		}
-
-		rootDelegate.on('oSquishyList.change', contentFilterChangeHandler);
 
 		var bodyDelegate = new DomDelegate(document.body);
 
