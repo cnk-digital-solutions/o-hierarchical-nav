@@ -28,9 +28,6 @@ function ResponsiveNav(rootEl) {
 
 		if (contentFilter) {
 			contentFilter.squish();
-			if (!isMegaDropdownControl(moreEl)) {
-				populateMoreList(contentFilter.getHiddenItems());
-			}
 		}
 	}
 
@@ -131,6 +128,9 @@ function ResponsiveNav(rootEl) {
 
 	// When there's an o-squishy-list change, collapse all elements and run the setMoreElClass method with number of non-hidden elements
 	function contentFilterChangeHandler(ev) {
+		if (contentFilter && !isMegaDropdownControl(moreEl)) {
+			populateMoreList(contentFilter.getHiddenItems());
+		}
 		if (ev.target === contentFilterEl && ev.detail.hiddenItems.length > 0) {
 			nav.collapseAll();
 			setMoreElClass(ev.detail.remainingItems.length);
