@@ -16,7 +16,7 @@
 		text-decoration: none;
 		cursor: pointer;
 		outline: none;
-		color: #ffffff;
+		color: oColorsGetPaletteColor('white');
 
 		// Prevent accidental double clicks and long taps from selecting text
 		// scss-lint:disable VendorPrefixes VendorPrefix
@@ -55,7 +55,7 @@
 .o-hierarchical-nav__parent > a {
 	// scss-lint:disable SelectorDepth
 	i {
-		@include oFtIconsGetSvg('arrow-down', #ffffff, 8, 8);
+		@include oFtIconsGetSvg('arrow-down', oColorsGetPaletteColor('white'), 8, 8);
 		padding-right: 6px;
 	}
 
