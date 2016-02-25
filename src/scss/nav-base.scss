@@ -16,7 +16,7 @@
 		text-decoration: none;
 		cursor: pointer;
 		outline: none;
-		color: #ffffff;
+		color: oColorsGetPaletteColor('white');
 
 		// Prevent accidental double clicks and long taps from selecting text
 		// scss-lint:disable VendorPrefixes VendorPrefix
@@ -55,16 +55,12 @@
 .o-hierarchical-nav__parent > a {
 	// scss-lint:disable SelectorDepth
 	i {
-		@extend %o-ft-icons-icon--arrow-down;
-		@include oFtIconsBaseIconStyles();
-		font-size: 8px;
-
-		// Ensure passing from normal to expanded state
-		// doesn't change the width of the menu
-		box-sizing: border-box;
-		width: 16px;
-		text-align: right;
+		@include oFtIconsGetSvg('arrow-down', oColorsGetPaletteColor('white'), 8, 8);
 		padding-right: 6px;
-		line-height: 16px;
+	}
+
+	&:focus i,
+	#{$o-hoverable-if-hover-enabled} &:hover i {
+		@include oFtIconsGetSvg('arrow-down', oColorsGetColorFor(link-title-hover, text), 8, $apply-base-styles: false);
 	}
 }

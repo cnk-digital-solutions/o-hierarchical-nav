@@ -58,7 +58,11 @@
 	// Show a right arrow when sub-level nav will be displayed to the right
 	.o-hierarchical-nav__parent.o-hierarchical-nav__outside-right[aria-expanded="true"] {
 		> a i {
-			@extend %o-ft-icons-icon--arrow-right;
+			@include oFtIconsGetSvg('arrow-right', oColorsGetPaletteColor('white'), 8, $apply-base-styles: false);
+		}
+
+		> a:focus i {
+			@include oFtIconsGetSvg('arrow-right', oColorsGetColorFor(link-title-hover, text), 8, $apply-base-styles: false);
 		}
 	}
 
