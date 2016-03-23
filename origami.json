@@ -31,6 +31,11 @@
             "description": ""
         },
         {
+            "path": "/demos/responsive-nav-cloneable.html",
+            "expanded": true,
+            "description": ""
+        },
+        {
             "path": "/demos/mega-dropdown.html",
             "expanded": false,
             "description": ""

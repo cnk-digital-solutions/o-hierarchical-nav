@@ -10,6 +10,10 @@
             "template": "demos/src/responsive-nav.mustache"
         },
         {
+            "name": "responsive-nav-cloneable",
+            "template": "demos/src/responsive-nav-cloneable.mustache"
+        },
+        {
             "name": "mega-dropdown",
             "template": "demos/src/mega-dropdown.mustache"
         },
