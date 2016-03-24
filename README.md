@@ -1,4 +1,4 @@
-# Hierarchical nav [![Build Status](https://travis-ci.org/Financial-Times/o-hierarchical-nav.png?branch=master)](https://travis-ci.org/Financial-Times/o-hierarchical-nav)
+# Hierarchical nav [![Build Status](https://circleci.com/gh/Financial-Times/o-hierarchical-nav.png?style=shield&circle-token=e13dbb693f411e99914c9979cf1471e5c05b1397)](https://circleci.com/gh/Financial-Times/o-hierarchical-nav)
 
 Responsive hierarchical navigation pattern.
 
