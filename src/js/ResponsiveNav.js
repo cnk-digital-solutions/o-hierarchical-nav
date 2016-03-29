@@ -65,8 +65,8 @@ function ResponsiveNav(rootEl) {
 		// recurse through children and amend any id values to maintain uniqueness
 		prefixIds(el);
 
-    // increase level of nested menus
-    incrementMenuDepths(cloneEl);
+		// increase level of nested menus
+		incrementMenuDepths(cloneEl);
 
 		moreListEl.appendChild(cloneEl);
 	}
@@ -92,8 +92,8 @@ function ResponsiveNav(rootEl) {
 					if (child.hasAttribute('data-o-hierarchical-nav-level')) {
 						// increment nav-level when attribute present
 						let origNavLevel = parseInt(child.getAttribute('data-o-hierarchical-nav-level'))
-            let updatedNavLevel = (isNaN(origNavLevel) ? 0 : origNavLevel) + 1
-            child.setAttribute('data-o-hierarchical-nav-level', updatedNavLevel);
+						let updatedNavLevel = (isNaN(origNavLevel) ? 0 : origNavLevel) + 1
+						child.setAttribute('data-o-hierarchical-nav-level', updatedNavLevel);
 					}
 					incrementMenuDepths(child);
 				}
