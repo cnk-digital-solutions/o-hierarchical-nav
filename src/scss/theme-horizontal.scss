@@ -61,11 +61,11 @@
 		left: 100%;
 		top: 0;
 	}
+	
 	// Styling for level X, anything above 4
 	[data-o-hierarchical-nav-level] {
 		background-color: oColorsGetPaletteColor('grey-tint4');
 	}
-
 
 	// Show a right arrow when sub-level nav will be displayed to the right
 	.o-hierarchical-nav__parent.o-hierarchical-nav__outside-right[aria-expanded="true"] {
